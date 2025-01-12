@@ -1,4 +1,3 @@
-import { Button } from 'components/Button'
 import { Container } from 'components/Container'
 import { Galery } from 'components/Galery'
 import { Products } from 'components/Products'
