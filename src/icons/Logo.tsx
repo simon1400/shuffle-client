@@ -1,11 +1,6 @@
 export const Logo = () => {
   return (
-    <svg
-      xmlns={'http://www.w3.org/2000/svg'}
-      width={'294.335'}
-      height={'49.118'}
-      viewBox={'0 0 294.335 49.118'}
-    >
+    <svg xmlns={'http://www.w3.org/2000/svg'} className={'w-full'} viewBox={'0 0 294.335 49.118'}>
       <g id={'Group_223'} data-name={'Group 223'} transform={'translate(11202.861 348.031)'}>
         <path
           id={'Path_134'}

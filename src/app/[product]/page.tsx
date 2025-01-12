@@ -4,6 +4,7 @@ import { Galery } from 'components/Galery'
 import { Products } from 'components/Products'
 import { Slider } from 'components/Slider'
 import { Table } from 'components/Table'
+import { TextCta } from 'components/TextCta'
 import { Top } from 'components/Top'
 import Image from 'next/image'
 
@@ -54,19 +55,7 @@ export default function Product() {
           </div>
         </Container>
       </section>
-      <section className={'py-[132px]'}>
-        <Container size={'sm'}>
-          <div className={'text-6xl mb-10'}>
-            <p>
-              <b>{'Shuffle King'}</b>
-              {
-                ' is money and a lot of other things, too. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc dapibus tortor vel mi dapibus sollicitudin. Etiam dui sem, fermentum vitae.'
-              }
-            </p>
-          </div>
-          <Button text={'Discover all products'} />
-        </Container>
-      </section>
+      <TextCta />
       <Galery />
       <section className={'py-[160px]'}>
         <Container size={'sm'}>

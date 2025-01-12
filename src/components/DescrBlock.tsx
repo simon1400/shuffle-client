@@ -1,17 +1,21 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useMediaQuery } from 'react-responsive'
 
 export const DescrBlock = () => {
+  const isDesktopMedia = useMediaQuery({
+    query: '(min-width: 1024px)',
+  })
   return (
-    <div className={'p-12.5 bg-lightDark rounded-big'}>
+    <div className={'px-7.5 py-8.5 md:p-12.5 bg-lightDark rounded-big'}>
       <Image
-        className={'mb-11'}
+        className={'mb-6 md:mb-11'}
         src={'assets/comment-music.svg'}
-        width={78}
-        height={68}
+        width={isDesktopMedia ? 78 : 59}
+        height={isDesktopMedia ? 68 : 52}
         alt={'asd'}
       />
-      <div className={'text-33xl opacity-70 mb-12.5'}>
+      <div className={'text-sm md:text-33xl opacity-70 mb-6.5 md:mb-12.5'}>
         <p>
           {
             'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc dapibus tortor vel mi dapibus'
@@ -19,7 +23,7 @@ export const DescrBlock = () => {
         </p>
       </div>
 
-      <Link className={'text-accent text-lg'} href={'/'}>
+      <Link className={'text-accent text-xs font-bold md:text-lg'} href={'/'}>
         {'cta action'}
       </Link>
     </div>

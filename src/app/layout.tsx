@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang={'en'}>
+    <html lang={'en'} className={'overflow-x-hidden max-w-screen'}>
       <head>
         <link rel={'preconnect'} href={'https://fonts.googleapis.com'} />
         <link rel={'preconnect'} href={'https://fonts.gstatic.com'} crossOrigin={'anonymous'} />
@@ -29,7 +29,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`antialiased bg-[url('/assets/top-background.png')] bg-repeat-x bg-[position:center_bottom] overflow-x-hidden`}
+        className={`antialiased bg-[url('/assets/top-background.png')] bg-repeat-x bg-[position:center_bottom] overflow-x-hidden max-w-screen`}
       >
         <Header />
         <main>{children}</main>

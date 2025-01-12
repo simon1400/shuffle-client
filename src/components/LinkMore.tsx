@@ -6,7 +6,9 @@ import { ArrowRight } from '../icons/ArrowRight'
 export const LinkMore = ({ text, href = '/' }: { text: string; href?: string }) => {
   return (
     <Link
-      className={'text-accent text-lg hover:text-cta inline-flex items-center gap-5 group '}
+      className={
+        'text-accent font-bold text-xs md:text-lg hover:text-cta inline-flex items-center gap-5 group '
+      }
       href={href}
     >
       <span>{text}</span>

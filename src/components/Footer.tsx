@@ -57,14 +57,14 @@ const NavItem = ({
   content?: string
 }) => {
   return (
-    <div>
-      <h5 className={'text-accent text-xxl mb-8.5'}>{title}</h5>
+    <div className={'mb-10 md:mb-0'}>
+      <h5 className={'text-accent text-sm font-bold md:text-xxl mb-5 md:mb-8.5'}>{title}</h5>
       {items?.length && (
-        <nav className={'mb-10'}>
+        <nav className={'md:mb-10'}>
           <ul>
             {items.map((item: INavItems) => (
               <li key={item.title} className={'mb-2'}>
-                <a className={'text-3xl opacity-70 hover:opacity-100'} href={item.link}>
+                <a className={'text-sm md:text-3xl opacity-70 hover:opacity-100'} href={item.link}>
                   {item.title}
                 </a>
               </li>
@@ -73,13 +73,13 @@ const NavItem = ({
         </nav>
       )}
       {content?.length && (
-        <div className={'opacity-70 text-3xl'}>
+        <div className={'opacity-70 text-sm md:text-3xl'}>
           <p>{content}</p>
         </div>
       )}
       {socIcons?.length && (
         <nav>
-          <ul className={'flex items-center gap-5'}>
+          <ul className={'flex justify-center md:justify-start items-center gap-5'}>
             {socIcons.map((item) => (
               <li key={item.link}>
                 <a href={item.link} target={'_blank'}>
@@ -99,9 +99,9 @@ const NavItem = ({
 
 export const Footer = () => {
   return (
-    <footer className={'py-[160px]'}>
+    <footer className={'py-11 md:py-[160px]'}>
       <Container size={'lg'}>
-        <div className={'flex justify-around'}>
+        <div className={'md:flex justify-around text-center md:text-left'}>
           <NavItem title={'Contact'} items={contactItems} content={'Address'} />
           <NavItem title={'Products'} items={productItems} />
           <NavItem title={'Links'} items={linksItems} />

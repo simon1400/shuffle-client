@@ -11,8 +11,8 @@ export const CtaSec = () => {
           }
         >
           <Container size={'md'}>
-            <div className={'relative z-10 py-[160px]'}>
-              <h3 className={'text-8xl mb-16.5'}>
+            <div className={'relative z-10 pl-7.5 md:pl-0 py-[90px] md:py-[160px]'}>
+              <h3 className={'text-5xl md:text-8xl mb-7.5 md:mb-16.5'}>
                 {'Kontaktujte nás pro individuální nabídku pro vaše casíno'}
               </h3>
               <Button inverse text={'contact our reseler'} />
