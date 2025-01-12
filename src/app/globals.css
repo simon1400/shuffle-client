@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: #b046f1;
+  --lightAccent: #b046f133;
+  --lightDark: #b046f11a;
+  --borderAccent: #b046f166;
+  --cta: #c475f5;
+  --primary: #03001b;
+  --lightPrimary: #03001bcc;
+}
+
+.stroke-text {
+  -webkit-text-stroke: 1.5px #b046f1;
+  color: transparent;
+}
+
+body {
+  color: #fff;
+  background: var(--primary);
+  font-family: 'Bai Jamjuree', sans-serif;
+}
+
+p b {
+  color: var(--accent);
+}
