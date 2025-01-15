@@ -2,6 +2,7 @@
 
 import { dataSmallCard } from 'data/smallCard'
 import parse from 'html-react-parser'
+import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -9,7 +10,6 @@ import { Button } from './Button'
 import { Container } from './Container'
 import { Slider } from './Slider'
 import { SmallCard } from './SmallCard'
-import Image from 'next/image'
 
 export const Top = ({
   title,
