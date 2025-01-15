@@ -6,7 +6,7 @@ export const Galery = () => {
   return (
     <section>
       <Container size={'lg'}>
-        <div className={'grid grid-cols-2 gap-12.5'}>
+        <div className={'grid grid-cols-2 gap-4 md:gap-12.5'}>
           <div className={'pt-[100%] relative overflow-hidden rounded-big'}>
             <Image
               src={'/assets/articleShort_1.png'}

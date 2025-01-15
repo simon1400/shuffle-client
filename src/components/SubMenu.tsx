@@ -14,7 +14,7 @@ export const SubMenu = ({
 }) => {
   return (
     <div
-      className={`absolute w-full bg-primary left-0 top-0 z-10 pb-12.5 ${!hover ? 'hidden' : ''} hover:block`}
+      className={`absolute w-full bg-primary left-0 top-0 z-10 pb-12.5 ${!hover ? 'h-0 opacity-0' : ''} hover:h-auto hover:opacity-100 duration-500 overflow-hidden`}
       onMouseLeave={() => setHover(false)}
     >
       <Container size={'lg'}>

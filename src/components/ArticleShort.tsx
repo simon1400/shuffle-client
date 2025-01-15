@@ -7,7 +7,7 @@ export const ArticleShort = ({ reverse, subHead }: { reverse: boolean; subHead?:
   return (
     <div className={'grid grid-cols-1 md:grid-cols-2 gap-7.5 md:gap-12.5 mb-[70px]'}>
       <div className={reverse ? 'md:order-last' : ''}>
-        <div className={'pt-[100%] relative overflow-hidden rounded-lg'}>
+        <div className={'pt-[100%] relative overflow-hidden rounded-lg bg-lightAccent'}>
           <Image
             src={'/assets/articleShort_1.png'}
             objectFit={'cover'}

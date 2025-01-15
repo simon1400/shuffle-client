@@ -9,6 +9,7 @@ import { Button } from './Button'
 import { Container } from './Container'
 import { Slider } from './Slider'
 import { SmallCard } from './SmallCard'
+import Image from 'next/image'
 
 export const Top = ({
   title,
@@ -32,13 +33,13 @@ export const Top = ({
   })
 
   return (
-    <div
-      className={`relative bg-[url('/assets/top-background.png')] bg-repeat-x bg-[position:center_top]`}
-    >
-      <div className={'h-full absolute w-full opacity-40'}>
-        <video className={'absolute min-w-full bottom-0'} autoPlay muted loop id={'animationVideo'}>
+    <div>
+      <div className={'absolute w-full top-0 left-0 right-0 -z-10'}>
+        <Image src={'/assets/top-background.svg'} fill alt={'Top background squares'} />
+        <video className={'w-full'} autoPlay muted loop id={'animationVideo'}>
           <source src={'/assets/animation.mp4'} type={'video/mp4'} />
         </video>
+        <Image src={'/assets/shadow-gradient.svg'} fill alt={'Top background squares'} />
       </div>
       <Container size={'lg'}>
         <div className={'pt-[220px] md:pt-[341px] pb-8.5 relative z-20'}>

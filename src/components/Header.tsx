@@ -2,7 +2,7 @@
 
 import { Squash as Hamburger } from 'hamburger-react'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Logo } from '../icons/Logo'
 
@@ -10,10 +10,26 @@ import { Container } from './Container'
 import { MobileMenu } from './MobileMenu'
 import { Nav } from './Nav'
 import { SubMenu } from './SubMenu'
+import { usePathname } from 'next/navigation'
 
 export const Header = () => {
   const [hoverSub, setHoverSub] = useState<boolean>(false)
   const [openHamburger, setOpenHamburger] = useState(false)
+  const pathname = usePathname()
+
+
+  useEffect(() => {
+    var root = document.getElementsByTagName( 'html' )[0];
+    if (openHamburger) {
+      root.classList.add('overflow-y-hidden')
+    } else {
+      root.classList.remove('overflow-y-hidden')
+    }
+  }, [openHamburger])
+
+  useEffect(() => {
+    setOpenHamburger(false)
+  }, [pathname])
 
   return (
     <>

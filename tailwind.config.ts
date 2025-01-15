@@ -81,7 +81,7 @@ export default {
         '20px',
         {
           lineHeight: '35px',
-          fontWeight: '500',
+          fontWeight: '400',
         },
       ],
       '4xl': [

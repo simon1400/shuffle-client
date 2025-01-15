@@ -16,7 +16,7 @@ export const Nav = ({ setHover }: { setHover: (value: boolean) => void }) => {
               onMouseEnter={() => setHover(true)}
               // onMouseLeave={onMouseLeave}
               className={
-                'block rounded-default hover:bg-lightAccent text-white text-33xl px-3.5 py-1'
+                'block rounded-default hover:bg-lightAccent text-white text-33xl px-3.5 py-1 duration-200'
               }
               href={item.link}
             >

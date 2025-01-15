@@ -6,7 +6,7 @@ export const LogoSlider = () => {
     <section className={'py-3 md:py-6'}>
       <Slider
         width={'252px'}
-        duration={10}
+        duration={20}
         pauseOnHover
         blurBorders={false}
         blurBorderColor={'#fff'}

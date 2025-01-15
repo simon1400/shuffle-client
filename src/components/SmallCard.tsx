@@ -8,7 +8,7 @@ export const SmallCard = ({ data }: { data: IDataSmallCard }) => {
     <Link
       href={data.link}
       className={
-        'max-w-[128px] md:max-w-[224px] block relative rounded-big hover:bg-lightDark text-center md:px-8 p-3.5 md:pb-8 md:pt-10'
+        'max-w-[128px] md:max-w-[224px] block relative rounded-big hover:bg-lightDark duration-200 text-center md:px-8 p-3.5 md:pb-8 md:pt-10'
       }
     >
       <Image

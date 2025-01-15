@@ -11,7 +11,7 @@ export default function Product() {
   return (
     <>
       <Top title={'All products'} label={'single-deck shuffler'} />
-      <section className={'-mt-[300px] '}>
+      <section className={'-mt-[220px] '}>
         <Image
           className={'relative z-60 mx-auto'}
           src={'/assets/bigProduct.png'}
@@ -20,7 +20,7 @@ export default function Product() {
           alt={''}
         />
         <Container size={'lg'}>
-          <div className={'-mt-[220px] relative -z-10'}>
+          <div className={'relative -z-10'}>
             <Slider />
           </div>
         </Container>
@@ -46,7 +46,7 @@ export default function Product() {
       </section>
       <section className={'pt-[160px]'}>
         <Container size={'md'}>
-          <h2 className={'text-8xl'}>{'Highlights'}</h2>
+          <h2 className={'text-5xl md:text-8xl'}>{'Highlights'}</h2>
           <Image src={'/assets/seccondBig.png'} width={800} height={550} alt={''} />
         </Container>
       </section>
@@ -54,7 +54,7 @@ export default function Product() {
       <Galery />
       <section className={'py-17'}>
         <Container size={'lg'}>
-          <h2 className={'text-8xl text-center mb-13'}>{'How to Choose the Best'}</h2>
+          <h2 className={'text-5xl md:text-8xl text-center mb-13'}>{'How to Choose the Best'}</h2>
           <Products />
         </Container>
       </section>

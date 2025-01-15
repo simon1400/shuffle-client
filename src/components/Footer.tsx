@@ -64,7 +64,10 @@ const NavItem = ({
           <ul>
             {items.map((item: INavItems) => (
               <li key={item.title} className={'mb-2'}>
-                <a className={'text-sm md:text-3xl opacity-70 hover:opacity-100'} href={item.link}>
+                <a
+                  className={'text-sm md:text-3xl opacity-70 hover:opacity-100 duration-200'}
+                  href={item.link}
+                >
                   {item.title}
                 </a>
               </li>

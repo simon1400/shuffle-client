@@ -27,6 +27,8 @@ export default function RootLayout({
           }
           rel={'stylesheet'}
         />
+        <meta name="theme-color" content="#03001b" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body
         className={`antialiased bg-[url('/assets/top-background.png')] bg-repeat-x bg-[position:center_bottom] overflow-x-hidden max-w-screen`}
