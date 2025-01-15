@@ -14,7 +14,7 @@ export const Slider = () => {
       style={{
         overflow: 'visible',
       }}
-      slidesPerView={isDesktopMedia ? 3.5 : 1.5}
+      slidesPerView={isDesktopMedia ? 3 : 1.5}
     >
       <SwiperSlide>
         <DescrBlock />

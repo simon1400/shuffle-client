@@ -47,7 +47,7 @@ export const Top = ({
             <label className={'block text-accent text-6xl mb-[200px]'}>{label}</label>
           )}
           {!!bigContent?.length && (
-            <div className={'text-6xl mb-10 max-w-[1200px]'}>{parse(bigContent)}</div>
+            <div className={'text-xl md:text-6xl mb-10 max-w-[1200px]'}>{parse(bigContent)}</div>
           )}
           {!!content?.length && (
             <div className={'text-6xl mb-10 max-w-[700px]'}>{parse(content)}</div>

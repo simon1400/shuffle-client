@@ -13,44 +13,15 @@ export default function Product() {
       <Top title={'All products'} label={'single-deck shuffler'} />
       <section className={'-mt-[300px] '}>
         <Image
-          className={'relative z-60'}
+          className={'relative z-60 mx-auto'}
           src={'/assets/bigProduct.png'}
           width={1700}
           height={990}
           alt={''}
         />
         <Container size={'lg'}>
-          <div className={'-mt-[220px] grid grid-cols-3 relative -z-10 gap-12.5'}>
-            <div className={'pt-[95px] px-12.5 pb-13 bg-lightAccent rounded-big'}>
-              <span className={'stroke-text text-big'}>{'1.'}</span>
-              <div className={'text-3xl opacity-70'}>
-                <p>
-                  {
-                    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc dapibus tortor vel mi dapibus'
-                  }
-                </p>
-              </div>
-            </div>
-            <div className={'pt-[95px] px-12.5 pb-13 bg-lightAccent rounded-big'}>
-              <span className={'stroke-text text-big'}>{'2.'}</span>
-              <div className={'text-3xl opacity-70'}>
-                <p>
-                  {
-                    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc dapibus tortor vel mi dapibus'
-                  }
-                </p>
-              </div>
-            </div>
-            <div className={'pt-[95px] px-12.5 pb-13 bg-lightAccent rounded-big'}>
-              <span className={'stroke-text text-big'}>{'3.'}</span>
-              <div className={'text-3xl opacity-70'}>
-                <p>
-                  {
-                    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc dapibus tortor vel mi dapibus'
-                  }
-                </p>
-              </div>
-            </div>
+          <div className={'-mt-[220px] relative -z-10'}>
+            <Slider />
           </div>
         </Container>
       </section>
@@ -59,7 +30,7 @@ export default function Product() {
       <section className={'py-[160px]'}>
         <Container size={'sm'}>
           <h2 className={'text-8xl mb-17'}>{'Feacures'}</h2>
-          <div className={'text-3xl mb-10 opacity-70'}>
+          <div className={'text-sm md:text-3xl mb-10 opacity-70'}>
             <p>
               {
                 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc dapibus tortor vel mi dapibus sollicitudin. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Etiam dictum tincidunt diam. Fusce suscipit libero eget elit. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Donec iaculis gravida nulla. Praesent vitae arcu tempor neque lacinia pretium. Nullam eget nisl. Quisque porta.'

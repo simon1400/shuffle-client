@@ -5,7 +5,7 @@ export const TextCta = () => {
   return (
     <section className={'py-[80px] md:py-[132px]'}>
       <Container size={'sm'}>
-        <div className={'text-xl md:text-6xl mb-7.5 md:mb-10'}>
+        <div className={'text-xl md:text-6xl mb-7.5 md:mb-10 opacity-70'}>
           <p>
             <b>{'Shuffle King'}</b>
             {

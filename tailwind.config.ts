@@ -84,13 +84,6 @@ export default {
           fontWeight: '500',
         },
       ],
-      '33xl': [
-        '21px',
-        {
-          lineHeight: '26px',
-          fontWeight: '500',
-        },
-      ],
       '4xl': [
         '24px',
         {

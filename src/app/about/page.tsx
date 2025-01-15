@@ -19,7 +19,7 @@ export default function About() {
       </section>
       <section className={'pt-[90px] pb-[130px]'}>
         <Container size={'sm'}>
-          <div className={'text-3xl'}>
+          <div className={'text-sm md:text-3xl'}>
             <p>
               {
                 'Our goal is to support casinos through the elevation of the experience for their players. Our card shufflers are ensuring a fair game for both for players and casino owners - having been extensively tested by companies such as GLI, or BMM, both of which we are working closely with to ensure we stay ahead of the game in terms of security. Providing help to casino owners to grow their business is our priority. Therefore we offer extensive support to any of our new or current clients. Remember - we help you to grow. Your INCOME'

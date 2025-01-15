@@ -26,7 +26,7 @@ export const ArticleShort = ({ reverse, subHead }: { reverse: boolean; subHead?:
             <span className={'block'}>{'About us'}</span>
             <Label big data={{ color: '#b046f1', text: 'labelss tesxt' }} />
           </h2>
-          <div className={'text-sm md:text-3xl mb-7.5 md:mb-17'}>
+          <div className={'text-sm md:text-3xl mb-7.5 md:mb-17 opacity-70'}>
             <p>
               {
                 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc dapibus tortor vel mi dapibus sollicitudin. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Etiam dictum tincidunt diam. Fusce suscipit libero eget elit. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Donec iaculis gravida nulla. Praesent vitae arcu tempor neque lacinia pretium. Nullam eget nisl. Quisque porta.'
