@@ -7,11 +7,6 @@ interface IDataSmallCard {
   labels?: ILabelData[]
 }
 
-interface ILabelData {
-  color: string
-  text: string
-}
-
 interface IDataImage {
   url: string
   name: string
@@ -48,16 +43,38 @@ interface IDescriptionBlock {
   cta: IDataLink
 }
 
-interface INavItem {
+interface INav {
   title?: string
-  items: {
+  items: INavItem[]
+}
+
+interface INavItem {
+  title: string
+  link: string
+  products?: IShortProduct[]
+}
+
+interface IParameters {
+  text?: string
+  has?: boolean
+  parameter: {
     title: string
-    link: string
-    products?: {
-      title: string
-      shortIcon: IDataImage
-      slug: string
-      label: IDataLabel[]
-    }[]
   }
+}
+
+interface IShortProduct {
+  title: string
+  description: string
+  shortIcon: IDataImage
+  slug: string
+  label: IDataLabel[]
+  Parameters?: IParameters[]
+}
+
+interface IArticleShort {
+  title: string
+  slug: string
+  shortContent: string
+  shortImage: IDataImage
+  label?: IDataLabel
 }

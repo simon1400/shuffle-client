@@ -1,5 +1,7 @@
 'use client'
 
+import type { IDataNav } from 'fetch/nav'
+
 import { Squash as Hamburger } from 'hamburger-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -12,8 +14,8 @@ import { MobileMenu } from './MobileMenu'
 import { Nav } from './Nav'
 import { SubMenu } from './SubMenu'
 
-export const Header = () => {
-  const [hoverSub, setHoverSub] = useState<boolean>(false)
+export const Header = ({ nav }: { nav: IDataNav }) => {
+  const [hoverSub, setHoverSub] = useState<number>(-1)
   const [openHamburger, setOpenHamburger] = useState(false)
   const pathname = usePathname()
 
@@ -41,8 +43,14 @@ export const Header = () => {
               </Link>
             </div>
             <div className={'hidden md:block'}>
-              <Nav setHover={setHoverSub} />
-              <SubMenu hover={hoverSub} setHover={setHoverSub} />
+              <Nav data={nav.topNav} setHover={setHoverSub} />
+              {!!nav.topNav.items[hoverSub]?.products?.length && (
+                <SubMenu
+                  data={nav.topNav.items[hoverSub].products}
+                  hover={hoverSub}
+                  setHover={setHoverSub}
+                />
+              )}
             </div>
             <div className={'md:hidden'}>
               <Hamburger

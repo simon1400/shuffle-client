@@ -1,6 +1,5 @@
 'use client'
 
-import { dataSmallCard } from 'data/smallCard'
 import parse from 'html-react-parser'
 import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
@@ -13,7 +12,7 @@ import { SmallCard } from './SmallCard'
 
 export const Top = ({
   title,
-  items = false,
+  items,
   content = '',
   bigContent = '',
   label = '',
@@ -21,7 +20,7 @@ export const Top = ({
   button = false,
 }: {
   title: string
-  items?: boolean
+  items?: IShortProduct[]
   button?: boolean
   content?: string
   bigContent?: string
@@ -54,7 +53,7 @@ export const Top = ({
             <div className={'text-6xl mb-10 max-w-[700px]'}>{parse(content)}</div>
           )}
           {button && <Button text={'discover products'} />}
-          {items && (
+          {!!items?.length && (
             <div className={'mt-[76px] md:mt-[200px]'}>
               <Swiper
                 spaceBetween={0}
@@ -63,7 +62,7 @@ export const Top = ({
                 }}
                 slidesPerView={isDesktopMedia ? 6 : 2.5}
               >
-                {dataSmallCard.map((item) => (
+                {items.map((item: IShortProduct) => (
                   <SwiperSlide key={item.title}>
                     <SmallCard data={item} />
                   </SwiperSlide>
@@ -71,7 +70,7 @@ export const Top = ({
               </Swiper>
             </div>
           )}
-          {blocks && <Slider />}
+          {/* {blocks && <Slider />} */}
         </div>
       </Container>
     </div>

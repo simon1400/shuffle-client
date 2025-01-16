@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { CtaSec } from 'components/CtaSec'
 import { Footer } from 'components/Footer'
 import { Header } from 'components/Header'
+import { getNav } from 'fetch/nav'
 import './globals.css'
 import 'swiper/css'
 
@@ -11,11 +12,13 @@ export const metadata: Metadata = {
   description: 'Shuffle king',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const navigation = await getNav()
+
   return (
     <html lang={'en'} className={'overflow-x-hidden max-w-screen'}>
       <head>
@@ -27,13 +30,13 @@ export default function RootLayout({
           }
           rel={'stylesheet'}
         />
-        <meta name="theme-color" content="#03001b" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <meta name={'theme-color'} content={'#03001b'} />
+        <link rel={'icon'} href={'/favicon.ico'} sizes={'any'} />
       </head>
       <body
         className={`antialiased bg-[url('/assets/top-background.png')] bg-repeat-x bg-[position:center_bottom] overflow-x-hidden max-w-screen`}
       >
-        <Header />
+        <Header nav={navigation} />
         <main>{children}</main>
         <CtaSec />
         <Footer />

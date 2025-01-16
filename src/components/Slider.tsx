@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { DescrBlock } from './DescrBlock'
 
-export const Slider = () => {
+export const Slider = ({ data }: { data: { contentText: string }[] }) => {
   const isDesktopMedia = useMediaQuery({
     query: '(min-width: 1024px)',
   })
@@ -16,18 +16,11 @@ export const Slider = () => {
       }}
       slidesPerView={isDesktopMedia ? 3 : 1.5}
     >
-      <SwiperSlide>
-        <DescrBlock />
-      </SwiperSlide>
-      <SwiperSlide>
-        <DescrBlock />
-      </SwiperSlide>
-      <SwiperSlide>
-        <DescrBlock />
-      </SwiperSlide>
-      <SwiperSlide>
-        <DescrBlock />
-      </SwiperSlide>
+      {data.map((item, idx) => (
+        <SwiperSlide key={idx}>
+          <DescrBlock data={item} />
+        </SwiperSlide>
+      ))}
     </Swiper>
   )
 }

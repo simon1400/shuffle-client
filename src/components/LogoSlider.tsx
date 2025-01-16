@@ -1,7 +1,8 @@
 'use client'
+
 import Slider from 'react-infinite-logo-slider'
 
-export const LogoSlider = () => {
+export const LogoSlider = ({ data }: { data: { url: string }[] }) => {
   return (
     <section className={'py-3 md:py-6'}>
       <Slider
@@ -11,18 +12,11 @@ export const LogoSlider = () => {
         blurBorders={false}
         blurBorderColor={'#fff'}
       >
-        <Slider.Slide>
-          <img className={'mx-auto max-w-[165px]'} src={'/assets/slider_1.png'} alt={'any'} />
-        </Slider.Slide>
-        <Slider.Slide>
-          <img className={'mx-auto max-w-[165px]'} src={'/assets/slider_2.png'} alt={'any'} />
-        </Slider.Slide>
-        <Slider.Slide>
-          <img className={'mx-auto max-w-[165px]'} src={'/assets/slider_1.png'} alt={'any'} />
-        </Slider.Slide>
-        <Slider.Slide>
-          <img className={'mx-auto max-w-[165px]'} src={'/assets/slider_2.png'} alt={'any'} />
-        </Slider.Slide>
+        {data.map((item: { url: string }) => (
+          <Slider.Slide key={item.url}>
+            <img className={'mx-auto max-w-[165px]'} src={item.url} alt={'Logo partners'} />
+          </Slider.Slide>
+        ))}
       </Slider>
     </section>
   )

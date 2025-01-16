@@ -1,28 +1,15 @@
-import { ArticleShort } from 'components/ArticleShort'
-import { Container } from 'components/Container'
-import { LogoSlider } from 'components/LogoSlider'
-import { Slider } from 'components/Slider'
-import { TextCta } from 'components/TextCta'
-import { Top } from 'components/Top'
+import type { IDataHomepage } from 'fetch/homepage'
 
-export default function Home() {
+import { DynamicContent } from 'components/DynamicContent'
+import { Top } from 'components/Top'
+import { getHomepage } from 'fetch/homepage'
+
+export default async function Home() {
+  const homepage: IDataHomepage = await getHomepage()
   return (
     <>
-      <Top title={'We care for your games, and help you grow'} items />
-      <TextCta />
-      <LogoSlider />
-      <section className={'pt-[80px] md:pt-[132px]'}>
-        <Container size={'lg'}>
-          <Slider />
-        </Container>
-      </section>
-      <TextCta />
-      <section>
-        <Container size={'lg'}>
-          <ArticleShort reverse={false} />
-          <ArticleShort reverse />
-        </Container>
-      </section>
+      <Top title={homepage.title} items={homepage.products} />
+      <DynamicContent data={homepage.dynamicContent} />
     </>
   )
 }
