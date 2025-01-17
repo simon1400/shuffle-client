@@ -1,6 +1,6 @@
 'use client'
 
-import type { IDataNav } from 'fetch/nav'
+import type { IDataTopNav } from 'fetch/nav'
 
 import { Squash as Hamburger } from 'hamburger-react'
 import Link from 'next/link'
@@ -14,7 +14,7 @@ import { MobileMenu } from './MobileMenu'
 import { Nav } from './Nav'
 import { SubMenu } from './SubMenu'
 
-export const Header = ({ nav }: { nav: IDataNav }) => {
+export const Header = ({ nav }: { nav: IDataTopNav }) => {
   const [hoverSub, setHoverSub] = useState<number>(-1)
   const [openHamburger, setOpenHamburger] = useState(false)
   const pathname = usePathname()
@@ -63,7 +63,7 @@ export const Header = ({ nav }: { nav: IDataNav }) => {
           </div>
         </Container>
       </header>
-      {openHamburger && <MobileMenu />}
+      {openHamburger && <MobileMenu data={nav.topNav} />}
     </>
   )
 }

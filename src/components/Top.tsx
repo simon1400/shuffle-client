@@ -16,7 +16,7 @@ export const Top = ({
   content = '',
   bigContent = '',
   label = '',
-  blocks = false,
+  blocks,
   button = false,
 }: {
   title: string
@@ -24,7 +24,7 @@ export const Top = ({
   button?: boolean
   content?: string
   bigContent?: string
-  blocks?: boolean
+  blocks?: IDescriptionBlock[]
   label?: string
 }) => {
   const isDesktopMedia = useMediaQuery({
@@ -70,7 +70,7 @@ export const Top = ({
               </Swiper>
             </div>
           )}
-          {/* {blocks && <Slider />} */}
+          {blocks && <Slider data={blocks} />}
         </div>
       </Container>
     </div>

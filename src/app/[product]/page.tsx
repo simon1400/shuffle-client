@@ -1,61 +1,51 @@
 import { Container } from 'components/Container'
-import { Galery } from 'components/Galery'
+import { DynamicContent } from 'components/DynamicContent'
 import { Products } from 'components/Products'
 import { Slider } from 'components/Slider'
-import { Table } from 'components/Table'
-import { TextCta } from 'components/TextCta'
 import { Top } from 'components/Top'
+import { getProduct } from 'fetch/product'
 import Image from 'next/image'
 
-export default function Product() {
+export default async function Product({ params }: { params: Promise<{ product: string }> }) {
+  const slug = (await params).product
+  const product = await getProduct(slug)
+  let compareProducts: IShortProduct[] = product.compare
+  if (product.compare?.length) {
+    compareProducts = [
+      {
+        title: product.title,
+        description: product.description,
+        shortIcon: product.shortIcon,
+        slug: '',
+        label: product.label,
+        Parameters: product.Parameters,
+      },
+      ...compareProducts,
+    ]
+  }
+
   return (
     <>
-      <Top title={'All products'} label={'single-deck shuffler'} />
+      <Top title={product.title} label={product.description} />
       <section className={'-mt-[220px] '}>
         <Image
           className={'relative z-60 mx-auto'}
-          src={'/assets/bigProduct.png'}
+          src={product.image.url}
           width={1700}
           height={990}
-          alt={''}
+          alt={product.title}
         />
         <Container size={'lg'}>
           <div className={'relative -z-10'}>
-            <Slider />
+            <Slider data={product.benefits} />
           </div>
         </Container>
       </section>
-      <TextCta />
-      <Galery />
-      <section className={'py-[160px]'}>
-        <Container size={'sm'}>
-          <h2 className={'text-8xl mb-17'}>{'Feacures'}</h2>
-          <div className={'text-sm md:text-3xl mb-10 opacity-70'}>
-            <p>
-              {
-                'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc dapibus tortor vel mi dapibus sollicitudin. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Etiam dictum tincidunt diam. Fusce suscipit libero eget elit. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Donec iaculis gravida nulla. Praesent vitae arcu tempor neque lacinia pretium. Nullam eget nisl. Quisque porta.'
-              }
-            </p>
-          </div>
-        </Container>
-      </section>
-      <section>
-        <Container size={'lg'}>
-          <Slider />
-        </Container>
-      </section>
-      <section className={'pt-[160px]'}>
-        <Container size={'md'}>
-          <h2 className={'text-5xl md:text-8xl'}>{'Highlights'}</h2>
-          <Image src={'/assets/seccondBig.png'} width={800} height={550} alt={''} />
-        </Container>
-      </section>
-      <Table />
-      <Galery />
+      <DynamicContent data={product.content} />
       <section className={'py-17'}>
         <Container size={'lg'}>
           <h2 className={'text-5xl md:text-8xl text-center mb-13'}>{'How to Choose the Best'}</h2>
-          <Products />
+          <Products data={compareProducts} />
         </Container>
       </section>
     </>

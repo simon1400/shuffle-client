@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { DescrBlock } from './DescrBlock'
 
-export const Slider = ({ data }: { data: { contentText: string }[] }) => {
+export const Slider = ({ data }: { data: IDescriptionBlock[] }) => {
   const isDesktopMedia = useMediaQuery({
     query: '(min-width: 1024px)',
   })

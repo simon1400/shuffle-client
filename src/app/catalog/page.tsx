@@ -1,25 +1,25 @@
 import { ArticleShort } from 'components/ArticleShort'
 import { Container } from 'components/Container'
 import { Top } from 'components/Top'
+import { getCatalog } from 'fetch/catalog'
+import { getAllProducts } from 'fetch/product'
 
-export default function Catalog() {
+export default async function Catalog() {
+  const catalog = await getCatalog()
+  const products = await getAllProducts()
   return (
     <>
-      <Top
-        title={'All products'}
-        content={`<p>
-              <b>Shuffle King</b>
-              is money and a lot of other things, too. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc dapibus tortor vel mi dapibus sollicitudin. Etiam dui sem, fermentum vitae.
-            </p>`}
-      />
+      <Top title={catalog.title} content={catalog.content} />
       <section className={'py-[110px]'}>
         <Container size={'lg'}>
-          <ArticleShort subHead={'single-deck shuffler'} reverse={false} />
-          <ArticleShort subHead={'single-deck shuffler'} reverse />
-          <ArticleShort subHead={'single-deck shuffler'} reverse={false} />
-          <ArticleShort subHead={'single-deck shuffler'} reverse />
-          <ArticleShort subHead={'single-deck shuffler'} reverse={false} />
-          <ArticleShort subHead={'single-deck shuffler'} reverse />
+          {products.map((product, idx: number) => (
+            <ArticleShort
+              key={product.title}
+              data={product}
+              subHead={product.description}
+              reverse={!!(idx % 2)}
+            />
+          ))}
         </Container>
       </section>
     </>

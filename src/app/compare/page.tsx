@@ -1,29 +1,13 @@
-import { Container } from 'components/Container'
-import { Products } from 'components/Products'
+import { DynamicContent } from 'components/DynamicContent'
 import { Top } from 'components/Top'
+import { getCompare } from 'fetch/compare'
 
-export default function Compare() {
+export default async function Compare() {
+  const compare = await getCompare()
   return (
     <>
-      <Top
-        title={'All products'}
-        bigContent={`<p>
-          <b>Shuffle King</b>
-          is money and a lot of other things, too. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc dapibus tortor vel mi dapibus sollicitudin. Etiam dui sem, fermentum vitae.
-        </p>`}
-      />
-      <section className={'py-17'}>
-        <Container size={'lg'}>
-          <h2 className={'text-8xl mb-13 text-left'}>{'Single-deck only shuffler'}</h2>
-        </Container>
-        <Products />
-      </section>
-      <section className={'py-17'}>
-        <Container size={'lg'}>
-          <h2 className={'text-8xl mb-13 text-left'}>{'Single-deck only shuffler'}</h2>
-          <Products />
-        </Container>
-      </section>
+      <Top title={compare.title} bigContent={compare.contentText} />
+      <DynamicContent data={compare.dynamicContent} />
     </>
   )
 }

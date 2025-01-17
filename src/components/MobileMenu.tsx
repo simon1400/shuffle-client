@@ -2,36 +2,7 @@
 import { PlusIcon } from 'icons/Plus'
 import { useState } from 'react'
 
-interface INavData {
-  title: string
-  link: string
-  subMenu?: {
-    title: string
-    link: string
-    label: string
-  }[]
-}
-
-const data: INavData[] = [
-  {
-    title: 'products',
-    link: '/products',
-    subMenu: [
-      { title: 'SK2 Max', link: '/sk2-max', label: 'singlek shufler' },
-      { title: 'SK3', link: '/sk2-max', label: 'singlek shufler' },
-    ],
-  },
-  {
-    title: 'accessories',
-    link: '/accessories',
-  },
-  {
-    title: 'about us',
-    link: '/about-us',
-  },
-]
-
-export const MobileMenu = () => {
+export const MobileMenu = ({ data }: { data: INav }) => {
   const [activeSub, setActiveSub] = useState<number>(-1)
 
   const handleSubMenu = (e: any, idx: number) => {
@@ -43,7 +14,7 @@ export const MobileMenu = () => {
     <div className={'aboslute bg-primary w-screen h-screen pt-[150px] px-5'}>
       <nav className={'border-t-[1.5px] border-borderAccent'}>
         <ul>
-          {data.map((item: INavData, idx: number) => {
+          {data.items.map((item: INavItem, idx: number) => {
             return (
               <li key={item.title} className={'border-b-[1.5px] border-borderAccent'}>
                 <a
@@ -51,19 +22,19 @@ export const MobileMenu = () => {
                   href={item.link}
                 >
                   <span>{item.title}</span>
-                  {item.subMenu && (
+                  {!!item.products?.length && (
                     <span onClick={(e) => handleSubMenu(e, idx)}>
                       <PlusIcon />
                     </span>
                   )}
                 </a>
-                {idx === activeSub && item.subMenu && (
+                {idx === activeSub && !!item.products?.length && (
                   <ul className={'pb-4'}>
-                    {item.subMenu.map((subItem) => (
+                    {item.products.map((subItem) => (
                       <li key={subItem.title}>
-                        <a className={'flex py-2.5 gap-2'} href={subItem.link}>
+                        <a className={'flex py-2.5 gap-2'} href={`/${subItem.slug}`}>
                           <span className={'text-xs font-bold'}>{subItem.title}</span>
-                          <span className={'text-[12px] text-accent'}>{subItem.label}</span>
+                          <span className={'text-[12px] text-accent'}>{subItem.description}</span>
                         </a>
                       </li>
                     ))}

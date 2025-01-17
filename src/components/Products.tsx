@@ -82,7 +82,7 @@ const ProductsDesktop = ({ data, parameters }: { data: IShortProduct[]; paramete
             key={`${product.title}_button`}
             className={'text-center md:pt-10 pt-2.5 md:mx-6 w-full'}
           >
-            <Button text={'detail'} href={`/${product.slug}`} />
+            {!!product.slug.length && <Button text={'detail'} href={`/${product.slug}`} />}
           </div>
         ))}
       </Row>
@@ -108,9 +108,11 @@ const ProductsMobile = ({
           <RowBody content={parameters[key][idx]} />
         </div>
       ))}
-      <div className={'text-center pt-10'}>
-        <Button text={'discorver products'} href={`/${data.slug}`} />
-      </div>
+      {!!data.slug.length && (
+        <div className={'text-center pt-10'}>
+          <Button text={'discorver products'} href={`/${data.slug}`} />
+        </div>
+      )}
     </div>
   )
 }

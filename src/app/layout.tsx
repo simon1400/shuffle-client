@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { CtaSec } from 'components/CtaSec'
 import { Footer } from 'components/Footer'
 import { Header } from 'components/Header'
-import { getNav } from 'fetch/nav'
+import { getTopNav } from 'fetch/nav'
 import './globals.css'
 import 'swiper/css'
 
@@ -17,7 +17,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const navigation = await getNav()
+  const navigation = await getTopNav()
 
   return (
     <html lang={'en'} className={'overflow-x-hidden max-w-screen'}>

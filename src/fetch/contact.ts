@@ -4,7 +4,7 @@ import { Axios } from '../lib/api'
 
 export interface IDataContact {
   title: string
-  descripBlock: IDescriptionBlock[]
+  decripBlock: IDescriptionBlock[]
   contentBlock: {
     title: string
     contentText: string
@@ -17,7 +17,35 @@ export const getContact = async () => {
   const query = qs.stringify(
     {
       fields: ['title'],
-      populate: ['metaData', 'contentBlock', 'descripBlock'],
+      populate: {
+        decripBlock: {
+          fields: ['contentText'],
+          populate: {
+            icon: {
+              fields: ['url'],
+            },
+            cta: {
+              fields: ['text', 'link'],
+            },
+          },
+        },
+        metaData: {
+          fields: ['title', 'description'],
+          populate: {
+            ogImage: {
+              fields: ['url'],
+            },
+          },
+        },
+        contentBlock: {
+          fields: ['title', 'contentText'],
+          populate: {
+            galery: {
+              fields: ['url'],
+            },
+          },
+        },
+      },
     },
     {
       encodeValuesOnly: true, // prettify URL

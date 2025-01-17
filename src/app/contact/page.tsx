@@ -1,41 +1,32 @@
+import type { INavSocItems } from 'fetch/nav'
+
 import { Container } from 'components/Container'
+import { Galery } from 'components/Galery'
 import { Top } from 'components/Top'
+import { getContact } from 'fetch/contact'
+import { getSocNav } from 'fetch/nav'
+import parse from 'html-react-parser'
 import { FacebookIcon } from 'icons/Facebook'
 import { InstagramIcon } from 'icons/Instagram'
 import { LinkedinIcon } from 'icons/Linkedin'
 import { TwitterIcon } from 'icons/Twitter'
 
-interface INavSocItems {
-  link: string
-  typeIcon: 'twitter' | 'facebook' | 'instagram' | 'linkedin'
-}
-
-const socItems: INavSocItems[] = [
-  { link: '/asd1', typeIcon: 'facebook' },
-  { link: '/asd2', typeIcon: 'instagram' },
-  { link: '/asd3', typeIcon: 'twitter' },
-  { link: '/asd4', typeIcon: 'linkedin' },
-]
-
-export default function Contact() {
+export default async function Contact() {
+  const contact = await getContact()
+  const socNav: INavSocItems[] = (await getSocNav()).socNav
   return (
     <>
-      <Top title={'How can we help you today?'} blocks />
+      <Top title={contact.title} blocks={contact.decripBlock} />
       <section className={'py-[130px]'}>
         <Container size={'sm'}>
           <div className={'mb-13'}>
-            <h2 className={'text-8xl mb-17'}>{'Follow us'}</h2>
-            <div className={'text-3xl opacity-70'}>
-              <p>
-                {
-                  'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc dapibus tortor vel mi dapibus sollicitudin. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Etiam dictum tincidunt diam. Fusce suscipit libero eget elit. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Donec iaculis gravida nulla. Praesent vitae arcu tempor neque lacinia pretium. Nullam eget nisl. Quisque porta.'
-                }
-              </p>
-            </div>
+            <h2 className={'text-8xl mb-17'}>{contact.contentBlock.title}</h2>
+            <div className={'text-3xl opacity-70'}>{parse(contact.contentBlock.contentText)}</div>
+            {!!contact.contentBlock.galery?.length && <Galery data={contact.contentBlock.galery} />}
           </div>
           <nav>
             <ul className={'flex items-center gap-5'}>
-              {socItems.map((item) => (
+              {socNav.map((item: INavSocItems) => (
                 <li key={item.link}>
                   <a
                     className={
@@ -44,10 +35,10 @@ export default function Contact() {
                     href={item.link}
                     target={'_blank'}
                   >
-                    {item.typeIcon === 'instagram' && <InstagramIcon />}
-                    {item.typeIcon === 'facebook' && <FacebookIcon />}
-                    {item.typeIcon === 'twitter' && <TwitterIcon />}
-                    {item.typeIcon === 'linkedin' && <LinkedinIcon />}
+                    {item.icon === 'instagram' && <InstagramIcon />}
+                    {item.icon === 'facebook' && <FacebookIcon />}
+                    {item.icon === 'twitter' && <TwitterIcon />}
+                    {item.icon === 'linkedin' && <LinkedinIcon />}
                   </a>
                 </li>
               ))}

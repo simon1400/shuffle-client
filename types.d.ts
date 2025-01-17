@@ -75,6 +75,6 @@ interface IArticleShort {
   title: string
   slug: string
   shortContent: string
-  shortImage: IDataImage
-  label?: IDataLabel
+  shortImage?: IDataImage
+  label?: IDataLabel[]
 }
