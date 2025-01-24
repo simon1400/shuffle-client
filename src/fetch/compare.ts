@@ -9,11 +9,14 @@ export interface IDataCompare {
   metaData?: IMetaData
 }
 
+<<<<<<< HEAD
 export interface IMetaDataCompare {
   title: string
   metaData?: IMetaData
 }
 
+=======
+>>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e
 export const getCompare = async () => {
   const query = qs.stringify(
     {
@@ -106,6 +109,7 @@ export const getCompare = async () => {
   const data: IDataCompare = await Axios.get(`/api/compare?${query}`)
   return data
 }
+<<<<<<< HEAD
 
 export const getCompareMeta = async () => {
   const query = qs.stringify(
@@ -130,3 +134,5 @@ export const getCompareMeta = async () => {
   const data: IMetaDataCompare = await Axios.get(`/api/compare?${query}`)
   return data
 }
+=======
+>>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e

@@ -1,12 +1,16 @@
 'use client'
+<<<<<<< HEAD
 
 import { useEffect, useState } from 'react'
+=======
+>>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e
 import { useMediaQuery } from 'react-responsive'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { DescrBlock } from './DescrBlock'
 
 export const Slider = ({ data }: { data: IDescriptionBlock[] }) => {
+<<<<<<< HEAD
   const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
@@ -21,6 +25,11 @@ export const Slider = ({ data }: { data: IDescriptionBlock[] }) => {
     return null
   }
 
+=======
+  const isDesktopMedia = useMediaQuery({
+    query: '(min-width: 1024px)',
+  })
+>>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e
   return (
     <Swiper
       spaceBetween={isDesktopMedia ? 50 : 20}
