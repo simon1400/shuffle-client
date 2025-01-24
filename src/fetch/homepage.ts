@@ -6,13 +6,10 @@ export interface IDataHomepage {
   title: string
   products: IShortProduct[]
   dynamicContent: any
-<<<<<<< HEAD
 }
 
 export interface IMetaDataHomepage {
   title: string
-=======
->>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e
   metaData?: IMetaData
 }
 
@@ -32,17 +29,6 @@ export const getHomepage = async () => {
             },
           },
         },
-<<<<<<< HEAD
-=======
-        metaData: {
-          fields: ['title', 'description'],
-          populate: {
-            ogImage: {
-              fields: ['url'],
-            },
-          },
-        },
->>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e
         dynamicContent: {
           on: {
             'content.cta-block': {
@@ -122,7 +108,6 @@ export const getHomepage = async () => {
   const data: IDataHomepage = await Axios.get(`/api/homepage?${query}`)
   return data
 }
-<<<<<<< HEAD
 
 export const getHomepageMeta = async () => {
   const query = qs.stringify(
@@ -147,5 +132,3 @@ export const getHomepageMeta = async () => {
   const data: IMetaDataHomepage = await Axios.get(`/api/homepage?${query}`)
   return data
 }
-=======
->>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e

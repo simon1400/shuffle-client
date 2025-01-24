@@ -10,12 +10,9 @@ export interface IDataContact {
     contentText: string
     galery: IDataImage[]
   }
-<<<<<<< HEAD
 }
 export interface IMetaDataContact {
   title: string
-=======
->>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e
   metaData?: IMetaData
 }
 
@@ -35,22 +32,14 @@ export const getContact = async () => {
             },
           },
         },
-<<<<<<< HEAD
         contentBlock: {
           fields: ['title', 'contentText'],
           populate: {
             galery: {
-=======
-        metaData: {
-          fields: ['title', 'description'],
-          populate: {
-            ogImage: {
->>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e
               fields: ['url'],
             },
           },
         },
-<<<<<<< HEAD
       },
     },
     {
@@ -71,12 +60,6 @@ export const getContactMeta = async () => {
           fields: ['title', 'description'],
           populate: {
             ogImage: {
-=======
-        contentBlock: {
-          fields: ['title', 'contentText'],
-          populate: {
-            galery: {
->>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e
               fields: ['url'],
             },
           },
@@ -88,10 +71,6 @@ export const getContactMeta = async () => {
     },
   )
 
-<<<<<<< HEAD
   const data: IMetaDataContact = await Axios.get(`/api/contact?${query}`)
-=======
-  const data: IDataContact = await Axios.get(`/api/contact?${query}`)
->>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e
   return data
 }

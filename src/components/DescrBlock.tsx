@@ -25,11 +25,7 @@ export const DescrBlock = ({ data }: { data: IDescrBlock }) => {
           alt={'asd'}
         />
       )}
-<<<<<<< HEAD
       <div className={'text-sm md:text-3xl opacity-70 mb-6.5 md:mb-12.5 text-white'}>
-=======
-      <div className={'text-sm md:text-3xl opacity-70 mb-6.5 md:mb-12.5'}>
->>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e
         {parse(data.contentText)}
       </div>
 

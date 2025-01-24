@@ -10,15 +10,12 @@ export interface IDataArticle {
   metaData?: IMetaData
 }
 
-<<<<<<< HEAD
 export interface IMetaDataArticle {
   title: string
   fullMedia: IDataImage
   metaData?: IMetaData
 }
 
-=======
->>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e
 export const getArticle = async (slug: string) => {
   const query = qs.stringify(
     {
@@ -91,7 +88,6 @@ export const getArticle = async (slug: string) => {
   const data: IDataArticle[] = await Axios.get(`/api/articles?${query}`)
   return data[0]
 }
-<<<<<<< HEAD
 export const getArticleMeta = async (slug: string) => {
   const query = qs.stringify(
     {
@@ -123,5 +119,3 @@ export const getArticleMeta = async (slug: string) => {
   const data: IMetaDataArticle[] = await Axios.get(`/api/articles?${query}`)
   return data[0]
 }
-=======
->>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e

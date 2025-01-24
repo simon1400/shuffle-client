@@ -73,11 +73,7 @@ const NavItem = ({
 
 export const Footer = async () => {
   const nav = await getFooterNav()
-<<<<<<< HEAD
   const { socNav } = await getSocNav()
-=======
-  const socNav = (await getSocNav()).socNav
->>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e
   return (
     <footer className={'py-11 md:py-[160px]'}>
       <Container size={'lg'}>

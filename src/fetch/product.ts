@@ -14,15 +14,12 @@ export interface IDataProduct {
   label: IDataLabel[]
   Parameters?: IParameters[]
 }
-<<<<<<< HEAD
 export interface IMetaDataProduct {
   title: string
   description: string
   image: IDataImage
   metaData?: IMetaData
 }
-=======
->>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e
 
 export interface IDataAllProducts {
   title: string
@@ -183,7 +180,6 @@ export const getAllProducts = async () => {
   const data: IDataAllProducts[] = await Axios.get(`/api/products?${query}`)
   return data
 }
-<<<<<<< HEAD
 
 export const getProductMeta = async (slug: string) => {
   const query = qs.stringify(
@@ -216,5 +212,3 @@ export const getProductMeta = async (slug: string) => {
   const data: IMetaDataProduct[] = await Axios.get(`/api/products?${query}`)
   return data[0]
 }
-=======
->>>>>>> cc672900a1d085f028f190a378ebe22ce82c800e
