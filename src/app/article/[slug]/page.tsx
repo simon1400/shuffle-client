@@ -18,7 +18,7 @@ export async function generateMetadata({
   const { metaData, title }: IMetaDataArticle = meta
 
   return {
-    title: metaData?.title || title,
+    title: `${metaData?.title || title} | Shuffle King`,
     description: metaData?.description || '',
     openGraph: metaData?.ogImage?.url
       ? {

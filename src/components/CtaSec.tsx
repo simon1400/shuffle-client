@@ -16,7 +16,7 @@ export const CtaSec = async () => {
           <Container size={'md'}>
             <div className={'relative z-10 pl-7.5 md:pl-0 py-[90px] md:py-[160px]'}>
               <h2 className={'text-5xl md:text-8xl mb-7.5 md:mb-16.5'}>{global.ctaSecTitle}</h2>
-              <Button inverse text={'contact our reseler'} href={`mailto:${global.email}`} />
+              <Button inverse text={global.footerCta.text} href={global.footerCta.link} />
             </div>
           </Container>
         </div>

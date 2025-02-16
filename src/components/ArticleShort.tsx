@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Button } from './Button'
 import { Label } from './Label'
 
-interface IProductArticle extends IArticleShort {
+export interface IProductArticle extends IArticleShort {
   image?: IDataImage
 }
 
@@ -13,8 +13,10 @@ export const ArticleShort = ({
   data,
   reverse,
   subHead,
+  product = false,
 }: {
   reverse: boolean
+  product?: boolean
   subHead?: string
   data: IProductArticle
 }) => {
@@ -38,7 +40,7 @@ export const ArticleShort = ({
           <div className={'text-sm md:text-3xl mb-7.5 md:mb-17 opacity-70'}>
             {parse(data.shortContent)}
           </div>
-          <Button text={'discover'} href={`/article/${data.slug}`} />
+          <Button text={'discover'} href={`${product ? '' : '/article'}/${data.slug}`} />
         </div>
       </div>
     </div>

@@ -19,6 +19,7 @@
     "react-dom": "^19.0.0",
     "react-infinite-logo-slider": "^1.1.4",
     "react-responsive": "^10.0.0",
+    "sass": "^1.85.0",
     "swiper": "^11.2.1"
   },
   "devDependencies": {

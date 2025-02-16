@@ -2,6 +2,7 @@ import { CheckIcon } from '../../icons/Check'
 import { XMarkIcon } from '../../icons/XMark'
 
 export const RowBody = ({ content }: { content: string | React.ReactNode }) => {
+  console.log(content)
   return (
     <div
       className={
@@ -10,7 +11,7 @@ export const RowBody = ({ content }: { content: string | React.ReactNode }) => {
     >
       <span className={'inline-block text-base md:text-3xl ml-auto md:mx-auto'}>
         {content === true && <CheckIcon />}
-        {content === false && <XMarkIcon />}
+        {!content && <XMarkIcon />}
         {typeof content === 'string' && <span className={'opacity-70'}>{content}</span>}
       </span>
     </div>

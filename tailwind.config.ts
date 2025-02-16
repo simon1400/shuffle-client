@@ -84,6 +84,13 @@ export default {
           fontWeight: '400',
         },
       ],
+      nav: [
+        '21px',
+        {
+          lineHeight: '26px',
+          fontWeight: '400',
+        },
+      ],
       '4xl': [
         '24px',
         {

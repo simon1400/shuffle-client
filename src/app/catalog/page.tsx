@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const meta = await getCatalogMeta()
 
   return {
-    title: meta.metaData?.title || meta.title,
+    title: `${meta.metaData?.title || meta.title} | Shuffle King`,
     description: meta.metaData?.description || '',
     openGraph: meta.metaData?.ogImage
       ? {
@@ -32,6 +32,7 @@ export default async function Catalog() {
             <ArticleShort
               key={product.title}
               data={product}
+              product
               subHead={product.description}
               reverse={!!(idx % 2)}
             />

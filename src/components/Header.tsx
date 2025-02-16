@@ -20,6 +20,10 @@ export const Header = ({ nav }: { nav: IDataTopNav }) => {
   const pathname = usePathname()
 
   useEffect(() => {
+    setHoverSub(-1)
+  }, [pathname])
+
+  useEffect(() => {
     const root = document.getElementsByTagName('html')[0]
     if (openHamburger) {
       root.classList.add('overflow-y-hidden')

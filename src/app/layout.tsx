@@ -4,7 +4,7 @@ import { CtaSec } from 'components/CtaSec'
 import { Footer } from 'components/Footer'
 import { Header } from 'components/Header'
 import { getTopNav } from 'fetch/nav'
-import './globals.css'
+import './globals.scss'
 
 export const metadata: Metadata = {
   title: 'Shuffle king',
