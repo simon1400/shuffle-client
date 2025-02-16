@@ -12,7 +12,7 @@ export const ContentItem = ({
   }
 }) => {
   return (
-    <section className={'py-[160px]'}>
+    <section className={'py-[40px] md:py-[80px]'}>
       {(data.title?.length || data.contentText?.length) && (
         <Container size={'sm'}>
           {data.title?.length && (
