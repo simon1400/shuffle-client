@@ -26,7 +26,7 @@ export async function generateMetadata({
   const ogImage = metaData?.ogImage?.url || image?.url
 
   return {
-    title: metaData?.title || title,
+    title: `${metaData?.title || title} | Shuffle King`,
     description: metaData?.description || description,
     openGraph: ogImage
       ? {

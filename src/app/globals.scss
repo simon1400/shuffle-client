@@ -1,0 +1,114 @@
+@use 'swiper/css';
+@use 'swiper/css/navigation';
+@use 'swiper/css/pagination';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: rgba(176, 70, 241, 1);
+  --lightAccent: rgba(176, 70, 241, 0.2);
+  --lightDark: rgba(176, 70, 241, 0.1);
+  --borderAccent: rgba(176, 70, 241, 0.4);
+  --cta: rgba(196, 117, 245, 1);
+  --primary: rgba(3, 0, 27, 1);
+  --lightPrimary: rgba(3, 0, 27, 0.8);
+}
+
+body {
+  color: #fff;
+  background: var(--primary);
+  font-family: 'Bai Jamjuree', sans-serif;
+}
+
+p{
+  opacity: 1;
+  a{
+    transition: all .2s ease-in-out;
+    color: var(--accent);
+    &:hover{
+      text-decoration: underline;
+      opacity: 1!important;
+    }
+  }
+  b {
+    color: var(--accent);
+  }
+}
+
+
+.custom-content {
+  a{
+    transition: all .2s ease-in-out;
+    color: var(--accent);
+    &:hover{
+      text-decoration: underline;
+      opacity: 1!important;
+    }
+  }
+  figure{
+    width: 100%;
+    table{
+      width: 100%;
+      tbody{
+        tr{
+          border-bottom: 1.5px solid var(--borderAccent);
+          td{
+            font-size: 20px;
+            line-height: 35px;
+            padding: 12.5px;
+            &:first-of-type{
+              padding-left: 0;
+            }
+            &:last-of-type{
+              padding-right: 0;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+  ul{
+    li{
+      padding-left: 30px;
+      position: relative;
+      &:before{
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 10px;
+        height: 1.5px;
+        left: 0;
+        top: 18px;
+        background: var(--accent);
+      }
+    }
+  }
+}
+
+@media(max-width:768px){
+  .custom-content{
+    figure{
+      table{
+        tbody{
+          tr{
+            td{
+              font-size: 15px;
+              line-height: 16px;
+            }
+          }
+        }
+      }
+    }
+    ul{
+      li{
+        padding-left: 20px;
+        &:before{
+          top: 14px;
+        }
+      }
+    }
+  }
+}

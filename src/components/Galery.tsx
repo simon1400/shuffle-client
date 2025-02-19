@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import { Container } from './Container'
 
-export const Galery = ({ data }: { data: { url: string }[] }) => {
+export const Galery = ({ data }: { data: IDataImage[] }) => {
   const column = clsx({ 'grid-cols-3': data.length >= 3 }, { 'grid-cols-2': data.length === 2 })
   return (
     <section>

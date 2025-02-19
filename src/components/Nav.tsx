@@ -10,7 +10,7 @@ export const Nav = ({ data, setHover }: { data: INav; setHover: (value: number) 
               onMouseEnter={() => setHover(idx)}
               // onMouseLeave={onMouseLeave}
               className={
-                'block rounded-default hover:bg-lightAccent text-white text-33xl px-3.5 py-1 duration-200'
+                'block rounded-default hover:bg-lightAccent text-white text-nav px-3.5 py-1 duration-200'
               }
               href={item.link}
             >

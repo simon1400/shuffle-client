@@ -1,4 +1,5 @@
 'use client'
+
 import { Button } from './Button'
 import { Container } from './Container'
 import { LinkMore } from './LinkMore'
@@ -25,8 +26,8 @@ export const SubMenu = ({
           ))}
         </div>
         <div className={'flex justify-center gap-12.5'}>
-          <Button text={'discorver products'} />
-          <LinkMore text={'compare all products'} />
+          <Button text={'discorver products'} href={'/catalog'} />
+          <LinkMore text={'compare all products'} href={'/compare'} />
         </div>
       </Container>
     </div>
