@@ -20,7 +20,7 @@ export const Button = ({
 
   return (
     <Link
-      className={`inline-block rounded-base ${background} py-3.5 px-6.5 md:py-4 md:px-10.5 duration-200 text-white text-xs font-bold md:text-lg ${className}`}
+      className={`button-tm inline-block rounded-base ${background} py-3.5 px-6.5 md:py-4 md:px-10.5 duration-200 text-white text-xs font-bold md:text-lg ${className}`}
       href={href}
     >
       {text}

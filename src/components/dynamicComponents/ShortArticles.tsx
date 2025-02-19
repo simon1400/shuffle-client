@@ -5,7 +5,7 @@ import { Container } from 'components/Container'
 
 export const ShortArticles = ({ data }: { data: { articles: IProductArticle[] } }) => {
   return (
-    <section>
+    <section className={'py-[40px] md:py-[80px]'}>
       <Container size={'lg'}>
         {data.articles.map((article: IProductArticle, idxArticle: number) => (
           <ArticleShort

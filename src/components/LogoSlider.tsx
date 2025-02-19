@@ -4,7 +4,7 @@ import Slider from 'react-infinite-logo-slider'
 
 export const LogoSlider = ({ data }: { data: { url: string }[] }) => {
   return (
-    <section className={'py-3 md:py-6'}>
+    <section className={'py-[40px] md:py-[80px]'}>
       <Slider
         width={'252px'}
         duration={20}

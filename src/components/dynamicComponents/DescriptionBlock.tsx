@@ -3,7 +3,7 @@ import { Slider } from 'components/Slider'
 
 export const DescriptionBlock = ({ data }: { data: { block: IDescriptionBlock[] } }) => {
   return (
-    <section className={'pt-[80px] md:pt-[132px]'}>
+    <section className={'py-[40px] md:py-[80px]'}>
       <Container size={'lg'}>
         <Slider data={data.block} />
       </Container>

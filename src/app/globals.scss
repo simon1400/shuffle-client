@@ -39,7 +39,7 @@ p{
 
 
 .custom-content {
-  a{
+  a:not(.button-tm){
     transition: all .2s ease-in-out;
     color: var(--accent);
     &:hover{
