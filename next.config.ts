@@ -23,10 +23,9 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Temporarily disabled due to Turbopack bug in Next.js 16.0.8
-  // experimental: {
-  //   optimizePackageImports: ['react-icons', 'swiper', 'html-react-parser'],
-  // },
+  experimental: {
+    optimizePackageImports: ['react-icons', 'swiper', 'html-react-parser'],
+  },
 }
 
 export default withBundleAnalyzer(nextConfig)
