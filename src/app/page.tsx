@@ -6,6 +6,7 @@ import { getHomepage, getHomepageMeta, type IDataHomepage } from 'fetch/homepage
 
 import { Suspense } from 'react'
 
+export const dynamic = 'force-dynamic' // Skip static generation, render on-demand
 export const revalidate = 3600 // Revalidate every hour
 
 export async function generateMetadata(): Promise<Metadata> {
