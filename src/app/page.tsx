@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
+
 import { Suspense } from 'react'
 
 import { DynamicContent } from 'components/DynamicContent'
 import { Top } from 'components/Top'
-import type { IDataHomepage } from 'fetch/homepage'
 import { getHomepage, getHomepageMeta } from 'fetch/homepage'
+import type { IDataHomepage } from 'fetch/homepage'
 
 export const revalidate = 3600 // Revalidate every hour
 
