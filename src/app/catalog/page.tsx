@@ -6,6 +6,8 @@ import { Top } from 'components/Top'
 import { getCatalog, getCatalogMeta } from 'fetch/catalog'
 import { getAllProducts } from 'fetch/product'
 
+export const revalidate = 3600 // Revalidate every hour
+
 export async function generateMetadata(): Promise<Metadata> {
   const meta = await getCatalogMeta()
 

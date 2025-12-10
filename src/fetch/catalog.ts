@@ -24,7 +24,9 @@ export const getCatalog = async () => {
     },
   )
 
-  const data: IDataCatalog = await Axios.get(`/api/catalog?${query}`)
+  const data: IDataCatalog = await Axios.get(`/api/catalog?${query}`, {
+    next: { revalidate: 3600 }, // Revalidate every hour
+  })
   return data
 }
 
@@ -48,6 +50,8 @@ export const getCatalogMeta = async () => {
     },
   )
 
-  const data: IMetaDataCatalog = await Axios.get(`/api/catalog?${query}`)
+  const data: IMetaDataCatalog = await Axios.get(`/api/catalog?${query}`, {
+    next: { revalidate: 3600 }, // Revalidate every hour
+  })
   return data
 }

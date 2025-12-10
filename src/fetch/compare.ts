@@ -103,7 +103,9 @@ export const getCompare = async () => {
     },
   )
 
-  const data: IDataCompare = await Axios.get(`/api/compare?${query}`)
+  const data: IDataCompare = await Axios.get(`/api/compare?${query}`, {
+    next: { revalidate: 3600 }, // Revalidate every hour
+  })
   return data
 }
 
@@ -127,6 +129,8 @@ export const getCompareMeta = async () => {
     },
   )
 
-  const data: IMetaDataCompare = await Axios.get(`/api/compare?${query}`)
+  const data: IMetaDataCompare = await Axios.get(`/api/compare?${query}`, {
+    next: { revalidate: 3600 }, // Revalidate every hour
+  })
   return data
 }

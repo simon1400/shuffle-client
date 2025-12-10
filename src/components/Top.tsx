@@ -34,8 +34,16 @@ export const Top = ({
   return (
     <div>
       <div className={'absolute w-full top-0 left-0 right-0 -z-10'}>
-        <Image src={'/assets/top-background.svg'} fill alt={'Top background squares'} />
-        <video className={'w-full'} autoPlay muted loop id={'animationVideo'}>
+        <Image src={'/assets/top-background.svg'} fill alt={'Top background squares'} priority />
+        <video
+          className={'w-full'}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          id={'animationVideo'}
+        >
           <source src={'/assets/animation.mp4'} type={'video/mp4'} />
         </video>
         <Image src={'/assets/shadow-gradient.svg'} fill alt={'Top background shadow'} />

@@ -47,7 +47,9 @@ export const getContact = async () => {
     },
   )
 
-  const data: IDataContact = await Axios.get(`/api/contact?${query}`)
+  const data: IDataContact = await Axios.get(`/api/contact?${query}`, {
+    next: { revalidate: 3600 }, // Revalidate every hour
+  })
   return data
 }
 
@@ -71,6 +73,8 @@ export const getContactMeta = async () => {
     },
   )
 
-  const data: IMetaDataContact = await Axios.get(`/api/contact?${query}`)
+  const data: IMetaDataContact = await Axios.get(`/api/contact?${query}`, {
+    next: { revalidate: 3600 }, // Revalidate every hour
+  })
   return data
 }
