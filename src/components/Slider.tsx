@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Lazy } from 'swiper/modules'
 
 import { DescrBlock } from './DescrBlock'
 
@@ -31,9 +30,6 @@ export const Slider = ({ data }: { data: IDescriptionBlock[] }) => {
         overflow: 'visible',
       }}
       slidesPerView={isDesktopMedia ? 3 : 1.5}
-      modules={[Lazy]}
-      lazy={true}
-      preloadImages={false}
     >
       {data.map((item, idx) => (
         <SwiperSlide key={idx}>
