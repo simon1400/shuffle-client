@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+
 import { Bai_Jamjuree } from 'next/font/google'
 
 import { CtaSec } from 'components/CtaSec'
