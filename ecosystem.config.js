@@ -1,21 +1,23 @@
 module.exports = {
   apps: [
     {
-      name: 'Shuffle client',
-      script: 'npm start',
-      env_production: {},
+      name: 'shuffle-client',
+      script: 'node_modules/next/dist/bin/next',
+      args: 'start -p 3002',
+      cwd: '/opt/shuffle-client',
+      instances: 1,
+      exec_mode: 'fork',
+      env: {
+        NODE_ENV: 'production',
+        PORT: 3002,
+      },
+      error_file: '/var/log/pm2/shuffle-client-error.log',
+      out_file: '/var/log/pm2/shuffle-client-out.log',
+      log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
+      merge_logs: true,
+      autorestart: true,
+      watch: false,
+      max_memory_restart: '1G',
     },
   ],
-
-  deploy: {
-    production: {
-      user: 'dimi',
-      // eslint-disable-next-line sonarjs/no-hardcoded-ip
-      host: ['89.221.216.23'],
-      ref: 'origin/main',
-      repo: 'git@github.com:simon1400/shuffle-client.git',
-      path: '/home/dimi/app/shuffle/client',
-      'post-deploy': 'npm i && npm run build && pm2 reload ecosystem.config.js --env production',
-    },
-  },
 }
