@@ -96,6 +96,7 @@ export default function getConfig(...additionalConfigs) {
           },
         ],
         'react/no-useless-fragment': ['off'],
+        'perfectionist/sort-imports': ['warn'], // Downgrade to warning to not block builds
       },
     },
     ...additionalConfigs,
