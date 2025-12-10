@@ -8,7 +8,6 @@ import { Lazy } from 'swiper/modules'
 import { DescrBlock } from './DescrBlock'
 
 import 'swiper/css'
-import 'swiper/css/lazy'
 
 export const Slider = ({ data }: { data: IDescriptionBlock[] }) => {
   const [isClient, setIsClient] = useState(false)
