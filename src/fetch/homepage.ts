@@ -105,9 +105,7 @@ export const getHomepage = async () => {
     },
   )
 
-  const data: IDataHomepage = await Axios.get(`/api/homepage?${query}`, {
-    next: { revalidate: 3600 }, // Revalidate every hour
-  })
+  const data: IDataHomepage = await Axios.get(`/api/homepage?${query}`)
   return data
 }
 
@@ -131,8 +129,6 @@ export const getHomepageMeta = async () => {
     },
   )
 
-  const data: IMetaDataHomepage = await Axios.get(`/api/homepage?${query}`, {
-    next: { revalidate: 3600 }, // Revalidate every hour
-  })
+  const data: IMetaDataHomepage = await Axios.get(`/api/homepage?${query}`)
   return data
 }

@@ -85,9 +85,7 @@ export const getArticle = async (slug: string) => {
     },
   )
 
-  const data: IDataArticle[] = await Axios.get(`/api/articles?${query}`, {
-    next: { revalidate: 3600 }, // Revalidate every hour
-  })
+  const data: IDataArticle[] = await Axios.get(`/api/articles?${query}`)
   return data[0]
 }
 export const getArticleMeta = async (slug: string) => {
@@ -118,8 +116,6 @@ export const getArticleMeta = async (slug: string) => {
     },
   )
 
-  const data: IMetaDataArticle[] = await Axios.get(`/api/articles?${query}`, {
-    next: { revalidate: 3600 }, // Revalidate every hour
-  })
+  const data: IMetaDataArticle[] = await Axios.get(`/api/articles?${query}`)
   return data[0]
 }

@@ -49,9 +49,7 @@ export const getTopNav = async () => {
     },
   )
 
-  const data: IDataTopNav = await Axios.get(`/api/navigation?${query}`, {
-    next: { revalidate: 7200 }, // Revalidate every 2 hours (navigation changes rarely)
-  })
+  const data: IDataTopNav = await Axios.get(`/api/navigation?${query}`)
   return data
 }
 
@@ -74,9 +72,7 @@ export const getFooterNav = async () => {
     },
   )
 
-  const data: IDataFooterNav = await Axios.get(`/api/navigation?${query}`, {
-    next: { revalidate: 7200 }, // Revalidate every 2 hours (navigation changes rarely)
-  })
+  const data: IDataFooterNav = await Axios.get(`/api/navigation?${query}`)
   return data
 }
 export const getSocNav = async () => {
@@ -93,8 +89,6 @@ export const getSocNav = async () => {
     },
   )
 
-  const data: IDataSocNav = await Axios.get(`/api/navigation?${query}`, {
-    next: { revalidate: 7200 }, // Revalidate every 2 hours (navigation changes rarely)
-  })
+  const data: IDataSocNav = await Axios.get(`/api/navigation?${query}`)
   return data
 }

@@ -155,9 +155,7 @@ export const getProduct = async (slug: string) => {
     },
   )
 
-  const data: IDataProduct[] = await Axios.get(`/api/products?${query}`, {
-    next: { revalidate: 3600 }, // Revalidate every hour
-  })
+  const data: IDataProduct[] = await Axios.get(`/api/products?${query}`)
   return data[0]
 }
 
@@ -179,9 +177,7 @@ export const getAllProducts = async () => {
     },
   )
 
-  const data: IDataAllProducts[] = await Axios.get(`/api/products?${query}`, {
-    next: { revalidate: 3600 }, // Revalidate every hour
-  })
+  const data: IDataAllProducts[] = await Axios.get(`/api/products?${query}`)
   return data
 }
 
@@ -213,8 +209,6 @@ export const getProductMeta = async (slug: string) => {
     },
   )
 
-  const data: IMetaDataProduct[] = await Axios.get(`/api/products?${query}`, {
-    next: { revalidate: 3600 }, // Revalidate every hour
-  })
+  const data: IMetaDataProduct[] = await Axios.get(`/api/products?${query}`)
   return data[0]
 }
