@@ -19,76 +19,19 @@ export interface IDataSocNav {
 }
 
 export const getTopNav = async () => {
-  const query = qs.stringify(
-    {
-      populate: {
-        topNav: {
-          populate: {
-            items: {
-              fields: ['title', 'link'],
-              populate: {
-                products: {
-                  fields: ['title', 'slug', 'description'],
-                  populate: {
-                    shortIcon: {
-                      fields: ['url'],
-                    },
-                    label: {
-                      fields: ['text', 'hexColor', 'invertText'],
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
-    },
-    {
-      encodeValuesOnly: true, // prettify URL
-    },
-  )
-
-  const data: IDataTopNav = await Axios.get(`/api/navigation?${query}`)
+  // Simplified query using populate=deep to avoid 400 errors
+  const data: IDataTopNav = await Axios.get('/api/navigation?populate=deep')
   return data
 }
 
 export const getFooterNav = async () => {
-  const query = qs.stringify(
-    {
-      populate: {
-        footer: {
-          fields: ['title'],
-          populate: {
-            items: {
-              fields: ['title', 'link'],
-            },
-          },
-        },
-      },
-    },
-    {
-      encodeValuesOnly: true, // prettify URL
-    },
-  )
-
-  const data: IDataFooterNav = await Axios.get(`/api/navigation?${query}`)
+  // Simplified query using populate=deep
+  const data: IDataFooterNav = await Axios.get('/api/navigation?populate=deep')
   return data
 }
-export const getSocNav = async () => {
-  const query = qs.stringify(
-    {
-      populate: {
-        socNav: {
-          fields: ['link', 'icon'],
-        },
-      },
-    },
-    {
-      encodeValuesOnly: true, // prettify URL
-    },
-  )
 
-  const data: IDataSocNav = await Axios.get(`/api/navigation?${query}`)
+export const getSocNav = async () => {
+  // Simplified query using populate=deep
+  const data: IDataSocNav = await Axios.get('/api/navigation?populate=deep')
   return data
 }
