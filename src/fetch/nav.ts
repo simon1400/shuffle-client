@@ -1,3 +1,5 @@
+import qs from 'qs'
+
 import { Axios } from '../lib/api'
 
 export interface IDataTopNav {
@@ -17,19 +19,72 @@ export interface IDataSocNav {
 }
 
 export const getTopNav = async () => {
-  // Simplified query using populate=deep to avoid 400 errors
-  const data: IDataTopNav = await Axios.get('/api/navigation?populate=deep')
+  const query = qs.stringify(
+    {
+      populate: {
+        topNav: {
+          populate: {
+            items: {
+              populate: {
+                products: {
+                  fields: ['title', 'slug', 'description'],
+                  populate: {
+                    shortIcon: {
+                      fields: ['url', 'alternativeText', 'width', 'height'],
+                    },
+                    label: {
+                      fields: ['text', 'hexColor', 'invertText'],
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    {
+      encodeValuesOnly: true,
+    },
+  )
+  const data: IDataTopNav = await Axios.get(`/api/navigation?${query}`)
   return data
 }
 
 export const getFooterNav = async () => {
-  // Simplified query using populate=deep
-  const data: IDataFooterNav = await Axios.get('/api/navigation?populate=deep')
+  const query = qs.stringify(
+    {
+      populate: {
+        footer: {
+          populate: {
+            items: {
+              fields: ['title', 'link'],
+            },
+          },
+        },
+      },
+    },
+    {
+      encodeValuesOnly: true,
+    },
+  )
+  const data: IDataFooterNav = await Axios.get(`/api/navigation?${query}`)
   return data
 }
 
 export const getSocNav = async () => {
-  // Simplified query using populate=deep
-  const data: IDataSocNav = await Axios.get('/api/navigation?populate=deep')
+  const query = qs.stringify(
+    {
+      populate: {
+        socNav: {
+          populate: '*',
+        },
+      },
+    },
+    {
+      encodeValuesOnly: true,
+    },
+  )
+  const data: IDataSocNav = await Axios.get(`/api/navigation?${query}`)
   return data
 }

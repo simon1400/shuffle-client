@@ -15,14 +15,14 @@ export const LogoSlider = ({ data }: { data: { url: string }[] }) => {
       >
         {data.map((item: { url: string }, idx) => (
           <Slider.Slide key={item.url}>
-            <div className="relative mx-auto w-[165px] h-[60px]">
+            <div className={'relative mx-auto w-[165px] h-[60px]'}>
               <Image
                 src={item.url}
                 alt={'Logo partners'}
                 fill
-                className="object-contain"
+                className={'object-contain'}
                 loading={idx < 4 ? 'eager' : 'lazy'}
-                sizes="165px"
+                sizes={'165px'}
               />
             </div>
           </Slider.Slide>

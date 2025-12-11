@@ -2,7 +2,6 @@ import { CheckIcon } from '../../icons/Check'
 import { XMarkIcon } from '../../icons/XMark'
 
 export const RowBody = ({ content }: { content: string | React.ReactNode }) => {
-  console.log(content)
   return (
     <div
       className={

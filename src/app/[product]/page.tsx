@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import type { IMetaDataProduct } from 'fetch/product'
 import type { Metadata } from 'next'
 
@@ -8,6 +9,7 @@ import { Slider } from 'components/Slider'
 import { Top } from 'components/Top'
 import { getProduct, getProductMeta } from 'fetch/product'
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
 
 interface ProductParams {
   product: string
@@ -22,6 +24,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { product } = await params
   const meta = await getProductMeta(product)
+
+  if (!meta) {
+    return {
+      title: 'Product Not Found | Shuffle King',
+    }
+  }
 
   const { metaData, title, description, image }: IMetaDataProduct = meta
 
@@ -42,8 +50,12 @@ export default async function Product({ params }: { params: Promise<ProductParam
   const { product: slug } = await params
   const product = await getProduct(slug)
 
+  if (!product) {
+    notFound()
+  }
+
   const compareProducts: IShortProduct[] = [
-    ...(product.compare?.length
+    ...(product.compare?.length > 0
       ? [
           {
             title: product.title,

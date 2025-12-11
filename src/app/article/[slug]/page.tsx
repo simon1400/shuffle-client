@@ -6,6 +6,7 @@ import { DynamicContent } from 'components/DynamicContent'
 import { Top } from 'components/Top'
 import { getArticle, getArticleMeta } from 'fetch/article'
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
 
 export async function generateMetadata({
   params,
@@ -14,6 +15,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const meta = await getArticleMeta(slug)
+
+  if (!meta) {
+    return {
+      title: 'Article Not Found | Shuffle King',
+    }
+  }
 
   const { metaData, title }: IMetaDataArticle = meta
 
@@ -31,6 +38,11 @@ export async function generateMetadata({
 export default async function Article({ params }: { params: Promise<{ slug: string }> }) {
   const slug = (await params).slug
   const article = await getArticle(slug)
+
+  if (!article) {
+    notFound()
+  }
+
   return (
     <>
       <Top title={article.title} bigContent={article.fullContent} />
