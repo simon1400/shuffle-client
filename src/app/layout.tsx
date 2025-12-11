@@ -26,7 +26,13 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const navigation = await getTopNav()
+  let navigation
+  try {
+    navigation = await getTopNav()
+  } catch (error) {
+    console.error('Failed to fetch navigation:', error)
+    navigation = { topNav: { items: [] } } // Fallback to empty navigation
+  }
 
   return (
     <html lang={'en'} className={`overflow-x-hidden max-w-screen ${baiJamjuree.variable}`}>
