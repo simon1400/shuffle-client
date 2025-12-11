@@ -48,13 +48,15 @@ export const Header = ({ nav }: { nav: IDataTopNav }) => {
             </div>
             <div className={'hidden md:block'}>
               {nav?.topNav && <Nav data={nav.topNav} setHover={setHoverSub} />}
-              {nav?.topNav?.items?.[hoverSub]?.products?.length && (
-                <SubMenu
-                  data={nav.topNav.items[hoverSub].products}
-                  hover={hoverSub}
-                  setHover={setHoverSub}
-                />
-              )}
+              {hoverSub >= 0 &&
+                nav?.topNav?.items?.[hoverSub]?.products &&
+                nav.topNav.items[hoverSub].products.length > 0 && (
+                  <SubMenu
+                    data={nav.topNav.items[hoverSub].products}
+                    hover={hoverSub}
+                    setHover={setHoverSub}
+                  />
+                )}
             </div>
             <div className={'md:hidden'}>
               <Hamburger

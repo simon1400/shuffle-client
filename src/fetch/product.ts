@@ -41,13 +41,13 @@ export const getProduct = async (slug: string) => {
       fields: ['title', 'description'],
       populate: {
         image: {
-          fields: ['url'],
+          fields: ['url', 'alternativeText', 'width', 'height'],
         },
         benefits: {
           fields: ['contentText'],
           populate: {
             icon: {
-              fields: ['url'],
+              fields: ['url', 'alternativeText', 'width', 'height'],
             },
             cta: {
               fields: ['text', 'link'],
@@ -62,7 +62,7 @@ export const getProduct = async (slug: string) => {
           populate: '*',
         },
         shortIcon: {
-          fields: ['url'],
+          fields: ['url', 'alternativeText', 'width', 'height'],
         },
         compare: {
           fields: ['title', 'description', 'slug'],
@@ -71,7 +71,7 @@ export const getProduct = async (slug: string) => {
               fields: ['text', 'hexColor', 'invertText'],
             },
             shortIcon: {
-              fields: ['url'],
+              fields: ['url', 'alternativeText', 'width', 'height'],
             },
             Parameters: {
               fields: ['text', 'has'],
@@ -90,7 +90,7 @@ export const getProduct = async (slug: string) => {
                   fields: ['title', 'shortContent', 'slug'],
                   populate: {
                     shortImage: {
-                      fields: ['url'],
+                      fields: ['url', 'alternativeText', 'width', 'height'],
                     },
                   },
                 },
@@ -99,7 +99,7 @@ export const getProduct = async (slug: string) => {
             'content.logo-carousel': {
               populate: {
                 logo: {
-                  fields: ['url'],
+                  fields: ['url', 'alternativeText', 'width', 'height'],
                 },
               },
             },
@@ -109,7 +109,7 @@ export const getProduct = async (slug: string) => {
                   fields: ['contentText'],
                   populate: {
                     icon: {
-                      fields: ['url'],
+                      fields: ['url', 'alternativeText', 'width', 'height'],
                     },
                     cta: {
                       fields: ['text', 'link'],
@@ -122,7 +122,7 @@ export const getProduct = async (slug: string) => {
               fields: ['title', 'contentText'],
               populate: {
                 galery: {
-                  fields: ['url'],
+                  fields: ['url', 'alternativeText', 'width', 'height'],
                 },
               },
             },
@@ -136,7 +136,7 @@ export const getProduct = async (slug: string) => {
                       fields: ['text', 'hexColor', 'invertText'],
                     },
                     shortIcon: {
-                      fields: ['url'],
+                      fields: ['url', 'alternativeText', 'width', 'height'],
                     },
                     Parameters: {
                       fields: ['text', 'has'],
@@ -165,7 +165,7 @@ export const getAllProducts = async () => {
       fields: ['title', 'description', 'slug', 'shortContent'],
       populate: {
         image: {
-          fields: ['url'],
+          fields: ['url', 'alternativeText', 'width', 'height'],
         },
         label: {
           fields: ['text', 'hexColor', 'invertText'],
@@ -192,13 +192,13 @@ export const getProductMeta = async (slug: string) => {
       fields: ['title', 'description'],
       populate: {
         image: {
-          fields: ['url'],
+          fields: ['url', 'alternativeText', 'width', 'height'],
         },
         metaData: {
           fields: ['title', 'description'],
           populate: {
             ogImage: {
-              fields: ['url'],
+              fields: ['url', 'alternativeText', 'width', 'height'],
             },
           },
         },

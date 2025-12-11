@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Bai_Jamjuree } from 'next/font/google'
 
 import { CtaSec } from 'components/CtaSec'
 import { Footer } from 'components/Footer'
 import { Header } from 'components/Header'
 import { WebVitals } from 'components/WebVitals'
 import { getTopNav } from 'fetch/nav'
+import { Bai_Jamjuree } from 'next/font/google'
 
 import './globals.scss'
 
