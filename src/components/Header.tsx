@@ -47,8 +47,8 @@ export const Header = ({ nav }: { nav: IDataTopNav }) => {
               </Link>
             </div>
             <div className={'hidden md:block'}>
-              <Nav data={nav.topNav} setHover={setHoverSub} />
-              {!!nav.topNav.items[hoverSub]?.products?.length && (
+              {nav?.topNav && <Nav data={nav.topNav} setHover={setHoverSub} />}
+              {nav?.topNav?.items?.[hoverSub]?.products?.length && (
                 <SubMenu
                   data={nav.topNav.items[hoverSub].products}
                   hover={hoverSub}
@@ -67,7 +67,7 @@ export const Header = ({ nav }: { nav: IDataTopNav }) => {
           </div>
         </Container>
       </header>
-      {openHamburger && <MobileMenu data={nav.topNav} />}
+      {openHamburger && nav?.topNav && <MobileMenu data={nav.topNav} />}
     </>
   )
 }

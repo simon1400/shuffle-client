@@ -10,27 +10,46 @@ export const dynamic = 'force-dynamic' // Skip static generation, render on-dema
 export const revalidate = 3600 // Revalidate every hour
 
 export async function generateMetadata(): Promise<Metadata> {
-  const meta = await getHomepageMeta()
-
-  return {
-    title: `${meta.metaData?.title || meta.title} | Shuffle King`,
-    description: meta.metaData?.description || '',
-    openGraph: meta.metaData?.ogImage
-      ? {
-          images: [meta.metaData.ogImage.url],
-        }
-      : null,
+  try {
+    const meta = await getHomepageMeta()
+    return {
+      title: `${meta.metaData?.title || meta.title} | Shuffle King`,
+      description: meta.metaData?.description || '',
+      openGraph: meta.metaData?.ogImage
+        ? {
+            images: [meta.metaData.ogImage.url],
+          }
+        : null,
+    }
+  } catch (error) {
+    console.error('Failed to fetch metadata:', error)
+    return {
+      title: 'Shuffle King',
+      description: 'Shuffle King - информация о конопи',
+    }
   }
 }
 
 async function HomepageContent() {
-  const homepage: IDataHomepage = await getHomepage()
-  return (
-    <>
-      <Top title={homepage.title} items={homepage.products} />
-      <DynamicContent data={homepage.dynamicContent} />
-    </>
-  )
+  try {
+    const homepage: IDataHomepage = await getHomepage()
+    return (
+      <>
+        <Top title={homepage.title} items={homepage.products} />
+        <DynamicContent data={homepage.dynamicContent} />
+      </>
+    )
+  } catch (error) {
+    console.error('Failed to fetch homepage data:', error)
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Shuffle King</h1>
+          <p className="text-gray-600">Стра ница временно недоступна</p>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default function Home() {
