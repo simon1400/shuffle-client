@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   description: 'Shuffle king',
 }
 
+// Force all pages to be dynamic - skip static generation at build time
+export const dynamic = 'force-dynamic'
+
 export default async function RootLayout({
   children,
 }: Readonly<{
