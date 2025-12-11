@@ -1,5 +1,3 @@
-import qs from 'qs'
-
 import { Axios } from '../lib/api'
 
 export interface IDataTopNav {
