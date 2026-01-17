@@ -41,7 +41,7 @@ export const Top = ({
           muted
           loop
           playsInline
-          preload="metadata"
+          preload={'metadata'}
           id={'animationVideo'}
         >
           <source src={'/assets/animation.mp4'} type={'video/mp4'} />

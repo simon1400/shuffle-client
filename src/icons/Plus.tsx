@@ -13,7 +13,7 @@ export const PlusIcon = () => {
         x2={'9.835'}
         transform={'translate(8.954 2) rotate(45)'}
         fill={'none'}
-        stroke={'#b046f1'}
+        stroke={'#ffd700'}
         strokeLinecap={'round'}
         strokeWidth={'2'}
       />
@@ -24,7 +24,7 @@ export const PlusIcon = () => {
         y2={'9.835'}
         transform={'translate(8.954 2) rotate(45)'}
         fill={'none'}
-        stroke={'#b046f1'}
+        stroke={'#ffd700'}
         strokeLinecap={'round'}
         strokeWidth={'2'}
       />

@@ -7,11 +7,11 @@
 @tailwind utilities;
 
 :root {
-  --accent: rgba(176, 70, 241, 1);
-  --lightAccent: rgba(176, 70, 241, 0.2);
-  --lightDark: rgba(176, 70, 241, 0.1);
-  --borderAccent: rgba(176, 70, 241, 0.4);
-  --cta: rgba(196, 117, 245, 1);
+  --accent: #ffd700;
+  --lightAccent: rgba(255, 215, 0, 0.2);
+  --lightDark: rgba(255, 215, 0, 0.1);
+  --borderAccent: rgba(255, 215, 0, 0.4);
+  --cta: #ffed4e;
   --primary: rgba(3, 0, 27, 1);
   --lightPrimary: rgba(3, 0, 27, 0.8);
 }

@@ -1,9 +1,21 @@
 'use client'
 import { PlusIcon } from 'icons/Plus'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-export const MobileMenu = ({ data }: { data: INav }) => {
+export const MobileMenu = ({ data, isOpen }: { data: INav; isOpen: boolean }) => {
   const [activeSub, setActiveSub] = useState<number>(-1)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    // Запускаем анимацию появления после монтирования
+    if (isOpen) {
+      requestAnimationFrame(() => {
+        setIsVisible(true)
+      })
+    } else {
+      setIsVisible(false)
+    }
+  }, [isOpen])
 
   const handleSubMenu = (e: any, idx: number) => {
     e.preventDefault()
@@ -11,7 +23,11 @@ export const MobileMenu = ({ data }: { data: INav }) => {
   }
 
   return (
-    <div className={'aboslute bg-primary w-screen h-screen pt-[150px] px-5'}>
+    <div
+      className={`fixed top-0 left-0 right-0 bg-primary w-screen h-screen pt-[80px] px-5 z-40 overflow-y-auto transition-transform duration-300 ease-out ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
       <nav className={'border-t-[1.5px] border-borderAccent'}>
         <ul>
           {data.items.map((item: INavItem, idx: number) => {

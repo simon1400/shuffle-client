@@ -15,22 +15,22 @@ export const ArrowRight = ({ className = '' }: { className?: string }) => {
       </defs>
       <g id={'a'} clipPath={'url(#b)'}>
         <g transform={'translate(-820.94 -1454.5)'}>
-          <rect width={'20'} height={'2'} transform={'translate(822 1459)'} fill={'#b046f1'} />
+          <rect width={'20'} height={'2'} transform={'translate(822 1459)'} fill={'#ffd700'} />
           <path
             d={'M0-4,10.544.036H0Z'}
             transform={'translate(837.337 1459.964)'}
-            fill={'#b046f1'}
+            fill={'#ffd700'}
           />
           <rect
             width={'20'}
             height={'2'}
             transform={'translate(842 1461) rotate(180)'}
-            fill={'#b046f1'}
+            fill={'#ffd700'}
           />
           <path
             d={'M10.544,0,0,4.036H10.544Z'}
             transform={'translate(847.881 1464.036) rotate(180)'}
-            fill={'#b046f1'}
+            fill={'#ffd700'}
           />
         </g>
       </g>

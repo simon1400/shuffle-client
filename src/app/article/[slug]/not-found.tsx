@@ -15,7 +15,7 @@ export default function NotFound() {
           <Link
             href={'/'}
             className={
-              'inline-block bg-accent hover:bg-lightAccent text-white px-8 py-4 rounded-default text-lg transition-colors duration-200'
+              'inline-block bg-accent hover:bg-lightAccent text-darkText px-8 py-4 rounded-default text-lg font-bold transition-colors duration-200'
             }
           >
             {'Back to Home\r'}

@@ -8,6 +8,7 @@ const mainPalette = {
   primary: 'var(--primary)',
   lightPrimary: 'var(--lightPrimary)',
   borderAccent: 'var(--borderAccent)',
+  darkText: '#06021a',
 }
 
 export default {
@@ -19,6 +20,25 @@ export default {
   theme: {
     extend: {
       colors: mainPalette,
+      keyframes: {
+        slideDown: {
+          '0%': { transform: 'translateY(-100%)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        slideInRight: {
+          '0%': { transform: 'translateX(100%)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
+      animation: {
+        slideDown: 'slideDown 0.5s ease-out',
+        slideInRight: 'slideInRight 0.3s ease-out',
+        fadeIn: 'fadeIn 0.3s ease-out',
+      },
     },
     fontSize: {
       xs: [
@@ -127,7 +147,7 @@ export default {
         },
       ],
       big: [
-        '83px',
+        '60px',
         {
           lineHeight: '90px',
           fontWeight: '500',
