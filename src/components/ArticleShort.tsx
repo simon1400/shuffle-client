@@ -1,9 +1,9 @@
 'use client'
-import parse from 'html-react-parser'
 import Image from 'next/image'
 
 import { Button } from './Button'
 import { Label } from './Label'
+import { LexicalRenderer } from './LexicalRenderer'
 
 export interface IProductArticle extends IArticleShort {
   image?: IDataImage
@@ -21,6 +21,7 @@ export const ArticleShort = ({
   data: IProductArticle
 }) => {
   const image = data.shortImage?.url || data.image?.url || ''
+
   return (
     <div className={'grid grid-cols-1 md:grid-cols-2 gap-7.5 md:gap-12.5 mb-[70px]'}>
       <div className={reverse ? 'md:order-last' : ''}>
@@ -38,7 +39,7 @@ export const ArticleShort = ({
             {!!data.label && data.label.map((item) => <Label key={item.text} big data={item} />)}
           </h2>
           <div className={'text-sm md:text-3xl mb-7.5 md:mb-17 opacity-70'}>
-            {parse(data.shortContent)}
+            <LexicalRenderer content={data.shortContentTest || data.shortContent} />
           </div>
           <Button text={'discover'} href={`${product ? '' : '/article'}/${data.slug}`} />
         </div>

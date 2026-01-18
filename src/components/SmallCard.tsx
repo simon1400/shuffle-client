@@ -21,7 +21,7 @@ export const SmallCard = ({ data }: { data: IShortProduct }) => {
       />
       <h4 className={'text-xs font-bold md:text-lg'}>{data.title}</h4>
       <span className={'text-accent text-[12px] md:text-base1 block mb-2.5'}>
-        {data.description}
+        {data.description.replace('-', '\u2011')}
       </span>
       {data.label && data.label.map((item: IDataLabel) => <Label key={item.text} data={item} />)}
     </Link>

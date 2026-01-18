@@ -27,6 +27,7 @@ export interface IDataAllProducts {
   slug: string
   shortContent: string
   image: IDataImage
+  shortImage?: IDataImage
   label: IDataLabel[]
 }
 
@@ -44,7 +45,7 @@ export const getProduct = async (slug: string) => {
           fields: ['url', 'alternativeText', 'width', 'height'],
         },
         benefits: {
-          fields: ['contentText'],
+          fields: ['contentTextTest'],
           populate: {
             icon: {
               fields: ['url', 'alternativeText', 'width', 'height'],
@@ -82,12 +83,17 @@ export const getProduct = async (slug: string) => {
         content: {
           on: {
             'content.cta-block': {
-              populate: '*',
+              fields: ['textTest'],
+              populate: {
+                cta: {
+                  fields: ['text', 'link'],
+                },
+              },
             },
             'content.short-artciles': {
               populate: {
                 articles: {
-                  fields: ['title', 'shortContent', 'slug'],
+                  fields: ['title', 'shortContentTest', 'slug'],
                   populate: {
                     shortImage: {
                       fields: ['url', 'alternativeText', 'width', 'height'],
@@ -106,7 +112,7 @@ export const getProduct = async (slug: string) => {
             'content.description-block': {
               populate: {
                 block: {
-                  fields: ['contentText'],
+                  fields: ['contentTextTest'],
                   populate: {
                     icon: {
                       fields: ['url', 'alternativeText', 'width', 'height'],
@@ -119,7 +125,7 @@ export const getProduct = async (slug: string) => {
               },
             },
             'content.content-item': {
-              fields: ['title', 'contentText'],
+              fields: ['title', 'contentTextTest'],
               populate: {
                 galery: {
                   fields: ['url', 'alternativeText', 'width', 'height'],
@@ -146,6 +152,25 @@ export const getProduct = async (slug: string) => {
                 },
               },
             },
+            'content.image-text-cta': {
+              fields: ['title', 'textTest'],
+              populate: {
+                image: {
+                  fields: ['url', 'alternativeText', 'width', 'height'],
+                },
+                cta: {
+                  fields: ['text', 'link'],
+                },
+              },
+            },
+            'content.video-gallery': {
+              fields: ['title'],
+              populate: {
+                videos: {
+                  fields: ['youtubeUrl', 'title'],
+                },
+              },
+            },
           },
         },
       },
@@ -163,7 +188,11 @@ export const getAllProducts = async () => {
   const query = qs.stringify(
     {
       fields: ['title', 'description', 'slug', 'shortContent'],
+      sort: ['sortOrder:asc'],
       populate: {
+        shortImage: {
+          fields: ['url', 'alternativeText', 'width', 'height'],
+        },
         image: {
           fields: ['url', 'alternativeText', 'width', 'height'],
         },

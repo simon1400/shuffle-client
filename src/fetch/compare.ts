@@ -4,7 +4,7 @@ import { Axios } from '../lib/api'
 
 export interface IDataCompare {
   title: string
-  contentText: string
+  contentTextTest: string
   dynamicContent: any
   metaData?: IMetaData
 }
@@ -17,7 +17,7 @@ export interface IMetaDataCompare {
 export const getCompare = async () => {
   const query = qs.stringify(
     {
-      fields: ['title', 'contentText'],
+      fields: ['title', 'contentTextTest'],
       populate: {
         metaData: {
           fields: ['title', 'description'],
@@ -35,7 +35,7 @@ export const getCompare = async () => {
             'content.short-artciles': {
               populate: {
                 articles: {
-                  fields: ['title', 'shortContent', 'slug'],
+                  fields: ['title', 'shortContentTest', 'slug'],
                   populate: {
                     shortImage: {
                       fields: ['url'],
@@ -54,7 +54,7 @@ export const getCompare = async () => {
             'content.description-block': {
               populate: {
                 block: {
-                  fields: ['contentText'],
+                  fields: ['contentTextTest'],
                   populate: {
                     icon: {
                       fields: ['url'],
@@ -67,7 +67,7 @@ export const getCompare = async () => {
               },
             },
             'content.content-item': {
-              fields: ['title', 'contentText'],
+              fields: ['title', 'contentTextTest'],
               populate: {
                 galery: {
                   fields: ['url'],

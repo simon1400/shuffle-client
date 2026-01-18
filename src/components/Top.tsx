@@ -1,20 +1,20 @@
 'use client'
 
-import parse from 'html-react-parser'
 import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { Button } from './Button'
 import { Container } from './Container'
+import { LexicalRenderer } from './LexicalRenderer'
 import { Slider } from './Slider'
 import { SmallCard } from './SmallCard'
 
 export const Top = ({
   title,
   items,
-  content = '',
-  bigContent = '',
+  contentTest = '',
+  bigContentTest = '',
   label = '',
   blocks,
   button = false,
@@ -22,8 +22,8 @@ export const Top = ({
   title: string
   items?: IShortProduct[]
   button?: boolean
-  content?: string
-  bigContent?: string
+  contentTest?: string
+  bigContentTest?: string
   blocks?: IDescriptionBlock[]
   label?: string
 }) => {
@@ -54,11 +54,11 @@ export const Top = ({
           {!!label?.length && (
             <label className={'block text-accent text-2xl md:text-6xl mb-[200px]'}>{label}</label>
           )}
-          {!!bigContent?.length && (
-            <div className={'text-xl md:text-6xl mb-10 max-w-[1200px]'}>{parse(bigContent)}</div>
+          {!!bigContentTest && (
+            <div className={'text-xl md:text-6xl mb-10 max-w-[1200px]'}><LexicalRenderer content={bigContentTest} /></div>
           )}
-          {!!content?.length && (
-            <div className={'text-xl md:text-6xl mb-10 max-w-[700px]'}>{parse(content)}</div>
+          {!!contentTest && (
+            <div className={'text-xl md:text-6xl mb-10 max-w-[700px]'}><LexicalRenderer content={contentTest} /></div>
           )}
           {button && <Button text={'discover products'} />}
           {!!items?.length && (

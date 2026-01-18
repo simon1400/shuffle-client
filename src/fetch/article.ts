@@ -5,7 +5,7 @@ import { Axios } from '../lib/api'
 export interface IDataArticle {
   title: string
   fullMedia: IDataImage
-  fullContent: string
+  fullContentTest: string
   dynamicComponents: any
   metaData?: IMetaData
 }
@@ -24,7 +24,7 @@ export const getArticle = async (slug: string) => {
           $eq: slug,
         },
       },
-      fields: ['title', 'fullContent'],
+      fields: ['title', 'fullContentTest'],
       populate: {
         fullMedia: {
           fields: ['url'],
@@ -37,7 +37,7 @@ export const getArticle = async (slug: string) => {
             'content.short-artciles': {
               populate: {
                 articles: {
-                  fields: ['title', 'shortContent', 'slug'],
+                  fields: ['title', 'shortContentTest', 'slug'],
                   populate: {
                     shortImage: {
                       fields: ['url'],
@@ -56,7 +56,7 @@ export const getArticle = async (slug: string) => {
             'content.description-block': {
               populate: {
                 block: {
-                  fields: ['contentText'],
+                  fields: ['contentTextTest'],
                   populate: {
                     icon: {
                       fields: ['url'],
@@ -69,10 +69,29 @@ export const getArticle = async (slug: string) => {
               },
             },
             'content.content-item': {
-              fields: ['title', 'contentText'],
+              fields: ['title', 'contentTextTest'],
               populate: {
                 galery: {
                   fields: ['url'],
+                },
+              },
+            },
+            'content.image-text-cta': {
+              fields: ['title', 'textTest'],
+              populate: {
+                image: {
+                  fields: ['url', 'alternativeText', 'width', 'height'],
+                },
+                cta: {
+                  fields: ['text', 'link'],
+                },
+              },
+            },
+            'content.video-gallery': {
+              fields: ['title'],
+              populate: {
+                videos: {
+                  fields: ['youtubeUrl', 'title'],
                 },
               },
             },

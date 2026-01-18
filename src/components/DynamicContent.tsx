@@ -40,6 +40,18 @@ const LogoSlider = dynamic(
 const TextCta = dynamic(() => import('./TextCta').then((mod) => ({ default: mod.TextCta })), {
   loading: () => <div className={'animate-pulse h-32 bg-gray-200 rounded'} />,
 })
+const ImageTextCta = dynamic(
+  () => import('./dynamicComponents/ImageTextCta').then((mod) => ({ default: mod.ImageTextCta })),
+  {
+    loading: () => <div className={'animate-pulse h-96 bg-gray-200 rounded'} />,
+  },
+)
+const VideoGallery = dynamic(
+  () => import('./VideoGallery').then((mod) => ({ default: mod.VideoGallery })),
+  {
+    loading: () => <div className={'animate-pulse h-64 bg-gray-200 rounded'} />,
+  },
+)
 
 interface DynamicContentProps {
   data: any[]
@@ -59,15 +71,22 @@ const COMPONENTS_MAP: Record<string, (item: any, idx: number) => JSX.Element | n
     <DescriptionBlock key={item.__component + idx} data={item} />
   ),
   'content.compare-table': (item, idx) => <CompareTable key={item.__component + idx} data={item} />,
+  'content.image-text-cta': (item, idx) => (
+    <ImageTextCta key={item.__component + idx} data={item} />
+  ),
+  'content.video-gallery': (item, idx) => (
+    <VideoGallery key={item.__component + idx} data={item.videos} title={item.title} />
+  ),
 }
 
 export const DynamicContent = ({ data }: DynamicContentProps) => {
   return (
     <div className={'custom-content'}>
-      {data.map((item, idx) => {
-        const renderComponent = COMPONENTS_MAP[item.__component]
-        return renderComponent ? renderComponent(item, idx) : null
-      })}
+      {!!data?.length &&
+        data.map((item, idx) => {
+          const renderComponent = COMPONENTS_MAP[item.__component]
+          return renderComponent ? renderComponent(item, idx) : null
+        })}
     </div>
   )
 }

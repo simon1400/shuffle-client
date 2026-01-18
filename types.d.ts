@@ -10,6 +10,7 @@ interface IDataSmallCard {
 interface IDataImage {
   url: string
   name: string
+  alternativeText?: string
 }
 
 interface IDataLink {
@@ -38,7 +39,7 @@ interface IMetaData {
 }
 
 interface IDescriptionBlock {
-  contentText: string
+  contentTextTest: string
   icon?: IDataImage
   cta: IDataLink
 }
@@ -74,7 +75,18 @@ interface IShortProduct {
 interface IArticleShort {
   title: string
   slug: string
-  shortContent: string
+  shortContent?: string
+  shortContentTest?: string
   shortImage?: IDataImage
   label?: IDataLabel[]
+}
+
+interface IVideoItem {
+  youtubeUrl: string
+  title?: string
+}
+
+interface IVideoGallery {
+  title?: string
+  videos: IVideoItem[]
 }

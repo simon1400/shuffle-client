@@ -45,7 +45,7 @@ export default async function Article({ params }: { params: Promise<{ slug: stri
 
   return (
     <>
-      <Top title={article.title} bigContent={article.fullContent} />
+      <Top title={article.title} bigContentTest={article.fullContentTest} />
       <section>
         <Container size={'lg'}>
           <Image src={article.fullMedia.url} width={1400} height={800} alt={article.title} />

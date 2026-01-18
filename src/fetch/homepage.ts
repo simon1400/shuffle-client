@@ -25,7 +25,7 @@ export const getHomepage = async () => {
             'content.short-artciles': {
               populate: {
                 articles: {
-                  fields: ['title', 'shortContent', 'slug'],
+                  fields: ['title', 'shortContentTest', 'slug'],
                   populate: {
                     shortImage: {
                       fields: ['url', 'alternativeText', 'width', 'height'],
@@ -53,6 +53,24 @@ export const getHomepage = async () => {
             },
             'content.compare-table': {
               populate: '*',
+            },
+            'content.image-text-cta': {
+              populate: {
+                image: {
+                  fields: ['url', 'alternativeText', 'width', 'height'],
+                },
+                cta: {
+                  fields: ['text', 'link'],
+                },
+              },
+            },
+            'content.video-gallery': {
+              fields: ['title'],
+              populate: {
+                videos: {
+                  fields: ['youtubeUrl', 'title'],
+                },
+              },
             },
           },
         },

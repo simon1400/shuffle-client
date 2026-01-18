@@ -6,7 +6,7 @@ import { Galery } from 'components/Galery'
 import { Top } from 'components/Top'
 import { getContact, getContactMeta } from 'fetch/contact'
 import { getSocNav } from 'fetch/nav'
-import parse from 'html-react-parser'
+import { LexicalRenderer } from 'components/LexicalRenderer'
 import { FacebookIcon } from 'icons/Facebook'
 import { InstagramIcon } from 'icons/Instagram'
 import { LinkedinIcon } from 'icons/Linkedin'
@@ -36,7 +36,7 @@ export default async function Contact() {
         <Container size={'sm'}>
           <div className={'mb-13'}>
             <h2 className={'text-8xl mb-17'}>{contact.contentBlock.title}</h2>
-            <div className={'text-3xl opacity-70'}>{parse(contact.contentBlock.contentText)}</div>
+            <div className={'text-3xl opacity-70'}><LexicalRenderer content={contact.contentBlock.contentTextTest} /></div>
             {!!contact.contentBlock.galery?.length && <Galery data={contact.contentBlock.galery} />}
           </div>
           <nav>

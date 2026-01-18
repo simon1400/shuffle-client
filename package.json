@@ -21,7 +21,8 @@
     "react-infinite-logo-slider": "^1.1.4",
     "react-responsive": "^10.0.0",
     "sass": "^1.85.0",
-    "swiper": "^11.2.1"
+    "swiper": "^11.2.1",
+    "yet-another-react-lightbox": "^3.28.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.16.0",

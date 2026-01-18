@@ -6,8 +6,6 @@ import { Top } from 'components/Top'
 import { getCatalog, getCatalogMeta } from 'fetch/catalog'
 import { getAllProducts } from 'fetch/product'
 
-export const revalidate = 3600 // Revalidate every hour
-
 export async function generateMetadata(): Promise<Metadata> {
   const meta = await getCatalogMeta()
 
@@ -27,7 +25,7 @@ export default async function Catalog() {
   const products = await getAllProducts()
   return (
     <>
-      <Top title={catalog.title} content={catalog.content} />
+      <Top title={catalog.title} contentTest={catalog.contentTest} />
       <section className={'py-[110px]'}>
         <Container size={'lg'}>
           {products.map((product, idx: number) => (
