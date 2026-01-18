@@ -19,7 +19,7 @@ interface VideoGalleryProps {
 function getYouTubeVideoId(url: string): string | null {
   const patterns = [
     /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
-    /^([a-zA-Z0-9_-]{11})$/, // Просто ID видео
+    /^([\w-]{11})$/i, // Просто ID видео
   ]
 
   for (const pattern of patterns) {
