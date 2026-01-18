@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo } from 'react'
+import React, { useMemo } from 'react'
 
 interface LexicalNode {
   type: string
@@ -46,9 +46,11 @@ function renderNode(node: LexicalNode, key: number): React.ReactNode {
     case 'paragraph':
       return <p key={key}>{children}</p>
 
-    case 'heading':
-      const HeadingTag = (node.tag || 'h1') as keyof JSX.IntrinsicElements
+    case 'heading': {
+      const tag = node.tag as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | undefined
+      const HeadingTag = tag || 'h1'
       return <HeadingTag key={key}>{children}</HeadingTag>
+    }
 
     case 'text':
       return renderText(node, key)
