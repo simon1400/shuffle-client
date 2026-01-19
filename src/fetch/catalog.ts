@@ -4,7 +4,7 @@ import { Axios } from '../lib/api'
 
 export interface IDataCatalog {
   title: string
-  contentTest: string
+  content: string
   metaData?: IMetaData
 }
 
@@ -16,7 +16,7 @@ export interface IMetaDataCatalog {
 export const getCatalog = async () => {
   const query = qs.stringify(
     {
-      fields: ['title', 'contentTest'],
+      fields: ['title', 'content'],
       populate: ['metaData'],
     },
     {

@@ -7,6 +7,7 @@ import { LexicalRenderer } from './LexicalRenderer'
 
 export interface IProductArticle extends IArticleShort {
   image?: IDataImage
+  shortContent?: string
 }
 
 export const ArticleShort = ({
@@ -21,6 +22,7 @@ export const ArticleShort = ({
   data: IProductArticle
 }) => {
   const image = data.shortImage?.url || data.image?.url || ''
+  const content = data.shortContent
 
   return (
     <div className={'grid grid-cols-1 md:grid-cols-2 gap-7.5 md:gap-12.5 mb-[70px]'}>
@@ -39,7 +41,7 @@ export const ArticleShort = ({
             {!!data.label && data.label.map((item) => <Label key={item.text} big data={item} />)}
           </h2>
           <div className={'text-sm md:text-3xl mb-7.5 md:mb-17 opacity-70'}>
-            <LexicalRenderer content={data.shortContentTest || data.shortContent} />
+            <LexicalRenderer content={content} />
           </div>
           <Button text={'discover'} href={`${product ? '' : '/article'}/${data.slug}`} />
         </div>

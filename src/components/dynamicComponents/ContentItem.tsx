@@ -7,20 +7,20 @@ export const ContentItem = ({
 }: {
   data: {
     title?: string
-    contentTextTest?: string
+    contentText?: string
     galery?: IDataImage[]
   }
 }) => {
   return (
     <section className={'py-[40px] md:py-[80px]'}>
-      {(data.title?.length || data.contentTextTest) && (
+      {(data.title?.length || data.contentText) && (
         <Container size={'sm'}>
           {data.title?.length && (
             <h2 className={'text-5xl md:text-8xl mb-10 md:mb-17'}>{data.title}</h2>
           )}
-          {data.contentTextTest && (
+          {data.contentText && (
             <div className={'text-sm md:text-3xl mb-10 opacity-70'}>
-              <LexicalRenderer content={data.contentTextTest} />
+              <LexicalRenderer content={data.contentText} />
             </div>
           )}
         </Container>

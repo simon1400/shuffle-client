@@ -5,7 +5,7 @@ import { useMediaQuery } from 'react-responsive'
 import { LexicalRenderer } from './LexicalRenderer'
 
 export interface IDescrBlock {
-  contentTextTest: string
+  contentText: string
   cta?: IDataLink
   icon?: IDataImage
 }
@@ -27,7 +27,7 @@ export const DescrBlock = ({ data }: { data: IDescrBlock }) => {
         />
       )}
       <div className={'text-sm md:text-3xl opacity-70 mb-6.5 md:mb-12.5 text-white'}>
-        <LexicalRenderer content={data.contentTextTest} />
+        <LexicalRenderer content={data.contentText} />
       </div>
 
       {data.cta && (

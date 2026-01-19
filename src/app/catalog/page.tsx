@@ -25,7 +25,7 @@ export default async function Catalog() {
   const products = await getAllProducts()
   return (
     <>
-      <Top title={catalog.title} contentTest={catalog.contentTest} />
+      <Top title={catalog.title} content={catalog.content} />
       <section className={'py-[110px]'}>
         <Container size={'lg'}>
           {products.map((product, idx: number) => (

@@ -39,7 +39,7 @@ interface IMetaData {
 }
 
 interface IDescriptionBlock {
-  contentTextTest: string
+  contentText: string
   icon?: IDataImage
   cta: IDataLink
 }
@@ -76,7 +76,6 @@ interface IArticleShort {
   title: string
   slug: string
   shortContent?: string
-  shortContentTest?: string
   shortImage?: IDataImage
   label?: IDataLabel[]
 }

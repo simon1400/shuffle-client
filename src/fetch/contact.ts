@@ -7,7 +7,7 @@ export interface IDataContact {
   decripBlock: IDescriptionBlock[]
   contentBlock: {
     title: string
-    contentTextTest: string
+    contentText: string
     galery: IDataImage[]
   }
 }
@@ -22,7 +22,7 @@ export const getContact = async () => {
       fields: ['title'],
       populate: {
         decripBlock: {
-          fields: ['contentTextTest'],
+          fields: ['contentText'],
           populate: {
             icon: {
               fields: ['url'],
@@ -33,7 +33,7 @@ export const getContact = async () => {
           },
         },
         contentBlock: {
-          fields: ['title', 'contentTextTest'],
+          fields: ['title', 'contentText'],
           populate: {
             galery: {
               fields: ['url'],

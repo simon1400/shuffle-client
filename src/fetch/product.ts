@@ -45,7 +45,7 @@ export const getProduct = async (slug: string) => {
           fields: ['url', 'alternativeText', 'width', 'height'],
         },
         benefits: {
-          fields: ['contentTextTest'],
+          fields: ['contentText'],
           populate: {
             icon: {
               fields: ['url', 'alternativeText', 'width', 'height'],
@@ -83,7 +83,7 @@ export const getProduct = async (slug: string) => {
         content: {
           on: {
             'content.cta-block': {
-              fields: ['textTest'],
+              fields: ['text'],
               populate: {
                 cta: {
                   fields: ['text', 'link'],
@@ -93,7 +93,7 @@ export const getProduct = async (slug: string) => {
             'content.short-artciles': {
               populate: {
                 articles: {
-                  fields: ['title', 'shortContentTest', 'slug'],
+                  fields: ['title', 'shortContent', 'slug'],
                   populate: {
                     shortImage: {
                       fields: ['url', 'alternativeText', 'width', 'height'],
@@ -112,7 +112,7 @@ export const getProduct = async (slug: string) => {
             'content.description-block': {
               populate: {
                 block: {
-                  fields: ['contentTextTest'],
+                  fields: ['contentText'],
                   populate: {
                     icon: {
                       fields: ['url', 'alternativeText', 'width', 'height'],
@@ -125,7 +125,7 @@ export const getProduct = async (slug: string) => {
               },
             },
             'content.content-item': {
-              fields: ['title', 'contentTextTest'],
+              fields: ['title', 'contentText'],
               populate: {
                 galery: {
                   fields: ['url', 'alternativeText', 'width', 'height'],
@@ -153,7 +153,7 @@ export const getProduct = async (slug: string) => {
               },
             },
             'content.image-text-cta': {
-              fields: ['title', 'textTest'],
+              fields: ['title', 'text'],
               populate: {
                 image: {
                   fields: ['url', 'alternativeText', 'width', 'height'],

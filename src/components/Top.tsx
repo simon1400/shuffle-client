@@ -13,8 +13,8 @@ import { SmallCard } from './SmallCard'
 export const Top = ({
   title,
   items,
-  contentTest = '',
-  bigContentTest = '',
+  content = '',
+  bigContent = '',
   label = '',
   blocks,
   button = false,
@@ -22,8 +22,8 @@ export const Top = ({
   title: string
   items?: IShortProduct[]
   button?: boolean
-  contentTest?: string
-  bigContentTest?: string
+  content?: string
+  bigContent?: string
   blocks?: IDescriptionBlock[]
   label?: string
 }) => {
@@ -54,11 +54,15 @@ export const Top = ({
           {!!label?.length && (
             <label className={'block text-accent text-2xl md:text-6xl mb-[200px]'}>{label}</label>
           )}
-          {!!bigContentTest && (
-            <div className={'text-xl md:text-6xl mb-10 max-w-[1200px]'}><LexicalRenderer content={bigContentTest} /></div>
+          {!!bigContent && (
+            <div className={'text-xl md:text-6xl mb-10 max-w-[1200px]'}>
+              <LexicalRenderer content={bigContent} />
+            </div>
           )}
-          {!!contentTest && (
-            <div className={'text-xl md:text-6xl mb-10 max-w-[700px]'}><LexicalRenderer content={contentTest} /></div>
+          {!!content && (
+            <div className={'text-xl md:text-6xl mb-10 max-w-[700px]'}>
+              <LexicalRenderer content={content} />
+            </div>
           )}
           {button && <Button text={'discover products'} />}
           {!!items?.length && (

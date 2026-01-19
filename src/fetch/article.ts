@@ -5,7 +5,7 @@ import { Axios } from '../lib/api'
 export interface IDataArticle {
   title: string
   fullMedia: IDataImage
-  fullContentTest: string
+  fullContent: string
   dynamicComponents: any
   metaData?: IMetaData
 }
@@ -24,7 +24,7 @@ export const getArticle = async (slug: string) => {
           $eq: slug,
         },
       },
-      fields: ['title', 'fullContentTest'],
+      fields: ['title', 'fullContent'],
       populate: {
         fullMedia: {
           fields: ['url'],
@@ -37,7 +37,7 @@ export const getArticle = async (slug: string) => {
             'content.short-artciles': {
               populate: {
                 articles: {
-                  fields: ['title', 'shortContentTest', 'slug'],
+                  fields: ['title', 'shortContent', 'slug'],
                   populate: {
                     shortImage: {
                       fields: ['url'],
@@ -56,7 +56,7 @@ export const getArticle = async (slug: string) => {
             'content.description-block': {
               populate: {
                 block: {
-                  fields: ['contentTextTest'],
+                  fields: ['contentText'],
                   populate: {
                     icon: {
                       fields: ['url'],
@@ -69,7 +69,7 @@ export const getArticle = async (slug: string) => {
               },
             },
             'content.content-item': {
-              fields: ['title', 'contentTextTest'],
+              fields: ['title', 'contentText'],
               populate: {
                 galery: {
                   fields: ['url'],
@@ -77,7 +77,7 @@ export const getArticle = async (slug: string) => {
               },
             },
             'content.image-text-cta': {
-              fields: ['title', 'textTest'],
+              fields: ['title', 'text'],
               populate: {
                 image: {
                   fields: ['url', 'alternativeText', 'width', 'height'],

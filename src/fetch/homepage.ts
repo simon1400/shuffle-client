@@ -25,7 +25,7 @@ export const getHomepage = async () => {
             'content.short-artciles': {
               populate: {
                 articles: {
-                  fields: ['title', 'shortContentTest', 'slug'],
+                  fields: ['title', 'shortContent', 'slug'],
                   populate: {
                     shortImage: {
                       fields: ['url', 'alternativeText', 'width', 'height'],
