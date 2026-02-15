@@ -67,19 +67,29 @@ export const Top = ({
           {button && <Button text={'discover products'} />}
           {!!items?.length && (
             <div className={'mt-[76px] md:mt-[200px]'}>
-              <Swiper
-                spaceBetween={0}
-                style={{
-                  overflow: 'visible',
-                }}
-                slidesPerView={isDesktopMedia ? 6 : 2.5}
-              >
-                {items.map((item: IShortProduct) => (
-                  <SwiperSlide key={item.title}>
-                    <SmallCard data={item} />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+              {isDesktopMedia ? (
+                <div className={'flex w-full'}>
+                  {items.map((item: IShortProduct) => (
+                    <div key={item.title} className={'flex-1 min-w-0'}>
+                      <SmallCard data={item} />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <Swiper
+                  spaceBetween={0}
+                  style={{
+                    overflow: 'visible',
+                  }}
+                  slidesPerView={2.5}
+                >
+                  {items.map((item: IShortProduct) => (
+                    <SwiperSlide key={item.title}>
+                      <SmallCard data={item} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              )}
             </div>
           )}
           {blocks && <Slider data={blocks} />}

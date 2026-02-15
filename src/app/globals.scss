@@ -38,6 +38,25 @@ p{
 }
 
 
+.descr-content {
+  h2, h3 {
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 500;
+    opacity: 1;
+    margin-bottom: 20px;
+  }
+}
+
+@media(min-width:769px){
+  .descr-content {
+    h2, h3 {
+      font-size: 35px;
+      line-height: 35px;
+    }
+  }
+}
+
 .custom-content {
   a:not(.button-tm){
     transition: all .2s ease-in-out;

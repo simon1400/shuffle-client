@@ -10,6 +10,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `${meta.metaData?.title || meta.title} | Shuffle King`,
     description: meta.metaData?.description || '',
+    alternates: {
+      canonical: '/compare',
+      languages: {
+        en: '/compare',
+        'x-default': '/compare',
+      },
+    },
     openGraph: meta.metaData?.ogImage
       ? {
           images: [meta.metaData.ogImage.url],

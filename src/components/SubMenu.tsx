@@ -20,9 +20,11 @@ export const SubMenu = ({
       onMouseLeave={() => setHover(-1)}
     >
       <Container size={'lg'}>
-        <div className={'grid grid-cols-6 mt-[265px] mb-12.5'}>
+        <div className={'flex w-full mt-[265px] mb-12.5'}>
           {data.map((item: IShortProduct) => (
-            <SmallCard key={item.title} data={item} />
+            <div key={item.title} className={'flex-1 min-w-0'}>
+              <SmallCard data={item} />
+            </div>
           ))}
         </div>
         <div className={'flex justify-center gap-12.5'}>

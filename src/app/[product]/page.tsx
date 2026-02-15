@@ -38,6 +38,13 @@ export async function generateMetadata({
   return {
     title: `${metaData?.title || title} | Shuffle King`,
     description: metaData?.description || description,
+    alternates: {
+      canonical: `/${product}`,
+      languages: {
+        en: `/${product}`,
+        'x-default': `/${product}`,
+      },
+    },
     openGraph: ogImage
       ? {
           images: [ogImage],
@@ -53,6 +60,8 @@ export default async function Product({ params }: { params: Promise<ProductParam
   if (!product) {
     notFound()
   }
+
+  const showCompare = product.showCompare !== false
 
   const compareProducts: IShortProduct[] = [
     ...(product.compare?.length > 0
@@ -74,13 +83,17 @@ export default async function Product({ params }: { params: Promise<ProductParam
     <>
       <Top title={product.title} label={product.description} />
       <section className={'-mt-[220px]'}>
-        <Image
-          className={'relative z-20 mx-auto'}
-          src={product.image.url}
-          width={1700}
-          height={990}
-          alt={product.title}
-        />
+        <div className={'overflow-x-hidden md:overflow-visible'}>
+          <Image
+            className={
+              'relative z-20 block w-[140%] max-w-none ml-[50%] -translate-x-1/2 md:w-full md:max-w-full md:ml-auto md:translate-x-0 md:mx-auto'
+            }
+            src={product.image.url}
+            width={1700}
+            height={990}
+            alt={product.title}
+          />
+        </div>
         <Container size={'lg'}>
           <div className={'relative z-10'}>
             <Slider data={product.benefits} />
@@ -88,14 +101,16 @@ export default async function Product({ params }: { params: Promise<ProductParam
         </Container>
       </section>
       <DynamicContent data={product.content} />
-      <section className={'py-17'}>
-        <Container size={'lg'}>
-          <h2 className={'text-5xl md:text-8xl text-center mb-10 md:mb-13'}>
-            {'How to Choose the Best'}
-          </h2>
-          <Products data={compareProducts} />
-        </Container>
-      </section>
+      {showCompare && (
+        <section className={'py-17'}>
+          <Container size={'lg'}>
+            <h2 className={'text-5xl md:text-8xl text-center mb-10 md:mb-13'}>
+              {'How to Choose the Best'}
+            </h2>
+            <Products data={compareProducts} />
+          </Container>
+        </section>
+      )}
     </>
   )
 }

@@ -9,7 +9,7 @@ export const SmallCard = ({ data }: { data: IShortProduct }) => {
     <Link
       href={data.slug}
       className={
-        'max-w-[128px] md:max-w-[224px] block relative rounded-big hover:bg-lightDark duration-200 text-center md:px-8 p-3.5 md:pb-8 md:pt-10'
+        'max-w-[128px] md:max-w-none block relative rounded-big hover:bg-lightDark duration-200 text-center md:px-8 p-3.5 md:pb-8 md:pt-10'
       }
     >
       <Image

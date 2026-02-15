@@ -26,7 +26,7 @@ export const DescrBlock = ({ data }: { data: IDescrBlock }) => {
           alt={'asd'}
         />
       )}
-      <div className={'text-sm md:text-3xl opacity-70 mb-6.5 md:mb-12.5 text-white'}>
+      <div className={'text-sm md:text-3xl opacity-70 mb-6.5 md:mb-12.5 text-white descr-content'}>
         <LexicalRenderer content={data.contentText} />
       </div>
 

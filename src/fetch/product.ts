@@ -13,6 +13,7 @@ export interface IDataProduct {
   metaData?: IMetaData
   label: IDataLabel[]
   Parameters?: IParameters[]
+  showCompare?: boolean
 }
 export interface IMetaDataProduct {
   title: string
@@ -39,7 +40,7 @@ export const getProduct = async (slug: string) => {
           $eq: slug,
         },
       },
-      fields: ['title', 'description'],
+      fields: ['title', 'description', 'showCompare'],
       populate: {
         image: {
           fields: ['url', 'alternativeText', 'width', 'height'],

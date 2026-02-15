@@ -27,6 +27,13 @@ export async function generateMetadata({
   return {
     title: `${metaData?.title || title} | Shuffle King`,
     description: metaData?.description || '',
+    alternates: {
+      canonical: `/article/${slug}`,
+      languages: {
+        en: `/article/${slug}`,
+        'x-default': `/article/${slug}`,
+      },
+    },
     openGraph: metaData?.ogImage?.url
       ? {
           images: [metaData.ogImage.url],

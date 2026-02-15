@@ -24,7 +24,7 @@ export const ProductsMobile = ({
       ))}
       {!!data.slug.length && (
         <div className={'text-center pt-10'}>
-          <Button text={'discorver products'} href={`/${data.slug}`} />
+          <Button text={'detail'} href={`/${data.slug}`} />
         </div>
       )}
     </div>
