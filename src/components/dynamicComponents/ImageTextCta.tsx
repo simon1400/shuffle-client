@@ -14,7 +14,7 @@ export const ImageTextCta = ({
   }
 }) => {
   return (
-    <section className={'py-[80px] md:py-[132px]'}>
+    <section className={'py-[10px] md:py-[80px]'}>
       <Container size={'lg'}>
         <div className={'grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center'}>
           <div className={'relative w-full aspect-[4/3] overflow-hidden rounded-lg'}>
@@ -28,7 +28,7 @@ export const ImageTextCta = ({
           </div>
           <div>
             <h2 className={'text-5xl md:text-8xl mb-7.5 md:mb-10'}>{data.title}</h2>
-            <div className={'text-xl md:text-3xl mb-7.5 md:mb-10 opacity-70'}>
+            <div className={'text-sm md:text-3xl mb-7.5 md:mb-10 opacity-70'}>
               {parse(data.text)}
             </div>
             {!!data.cta && <Button text={data.cta.text} href={data.cta.link} />}

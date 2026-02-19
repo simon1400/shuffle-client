@@ -86,7 +86,7 @@ export default async function Product({ params }: { params: Promise<ProductParam
         <div className={'overflow-x-hidden md:overflow-visible'}>
           <Image
             className={
-              'relative z-20 block w-[140%] max-w-none ml-[50%] -translate-x-1/2 md:w-full md:max-w-full md:ml-auto md:translate-x-0 md:mx-auto'
+              'relative z-20 block w-[140%] max-w-none ml-[50%] -translate-x-1/2 md:w-full md:max-w-[1500px] md:ml-auto md:translate-x-0 md:mx-auto '
             }
             src={product.image.url}
             width={1700}

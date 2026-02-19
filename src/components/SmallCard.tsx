@@ -7,7 +7,7 @@ import { Label } from './Label'
 export const SmallCard = ({ data }: { data: IShortProduct }) => {
   return (
     <Link
-      href={data.slug}
+      href={`/${data.slug}`}
       className={
         'max-w-[128px] md:max-w-none block relative rounded-big hover:bg-lightDark duration-200 text-center md:px-8 p-3.5 md:pb-8 md:pt-10'
       }

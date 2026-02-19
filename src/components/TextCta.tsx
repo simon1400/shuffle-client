@@ -4,7 +4,7 @@ import { LinkMore } from './LinkMore'
 
 export const TextCta = ({ data }: { data: { text?: string; cta?: IDataLink } }) => {
   return (
-    <section className={'py-[80px] md:py-[132px]'}>
+    <section className={'py-[10px] md:py-[80px]'}>
       <Container size={'md'}>
         <div className={'text-xl md:text-6xl mb-7.5 md:mb-10 opacity-70'}>
           <LexicalRenderer content={data.text} />
