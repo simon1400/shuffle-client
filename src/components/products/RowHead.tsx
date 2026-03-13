@@ -1,10 +1,10 @@
+import { CldImage } from 'components/CldImage'
 import { Label } from 'components/Label'
-import Image from 'next/image'
 
 export const RowHead = ({ data }: { data: IShortProduct }) => {
   return (
     <div className={'text-center pb-11 w-full md:mx-6'}>
-      <Image
+      <CldImage
         className={'mx-auto mb-2.5'}
         src={data.shortIcon?.url || ''}
         width={160}

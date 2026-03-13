@@ -1,7 +1,7 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { useMediaQuery } from 'react-responsive'
 
+import { CldImage } from './CldImage'
 import { LexicalRenderer } from './LexicalRenderer'
 
 export interface IDescrBlock {
@@ -18,7 +18,7 @@ export const DescrBlock = ({ data }: { data: IDescrBlock }) => {
   return (
     <div className={'px-7.5 py-8.5 md:p-12.5 bg-lightDark rounded-big'}>
       {data?.icon && (
-        <Image
+        <CldImage
           className={'mb-6 md:mb-11'}
           src={data.icon.url}
           width={isDesktopMedia ? 78 : 59}

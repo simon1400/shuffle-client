@@ -1,9 +1,9 @@
 'use client'
 import clsx from 'clsx'
-import Image from 'next/image'
 import { useState } from 'react'
 import Lightbox from 'yet-another-react-lightbox'
 
+import { CldImage } from './CldImage'
 import { Container } from './Container'
 
 import 'yet-another-react-lightbox/styles.css'
@@ -26,7 +26,7 @@ export const Galery = ({ data }: { data: IDataImage[] }) => {
               }
               onClick={() => setIndex(i)}
             >
-              <Image src={img.url} className={'object-cover object-center'} fill alt={img.url} />
+              <CldImage src={img.url} className={'object-cover object-center'} fill alt={img.url} />
             </div>
           ))}
         </div>

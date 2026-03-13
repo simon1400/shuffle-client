@@ -2,13 +2,13 @@
 import type { IMetaDataProduct } from 'fetch/product'
 import type { Metadata } from 'next'
 
+import { CldImage } from 'components/CldImage'
 import { Container } from 'components/Container'
 import { DynamicContent } from 'components/DynamicContent'
 import { Products } from 'components/products/Products'
 import { Slider } from 'components/Slider'
 import { Top } from 'components/Top'
 import { getProduct, getProductMeta } from 'fetch/product'
-import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
 interface ProductParams {
@@ -84,7 +84,7 @@ export default async function Product({ params }: { params: Promise<ProductParam
       <Top title={product.title} label={product.description} />
       <section className={'-mt-[220px]'}>
         <div className={'overflow-x-hidden md:overflow-visible'}>
-          <Image
+          <CldImage
             className={
               'relative z-20 block w-[140%] max-w-none ml-[50%] -translate-x-1/2 md:w-full md:max-w-[1500px] md:ml-auto md:translate-x-0 md:mx-auto '
             }

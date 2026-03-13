@@ -1,7 +1,8 @@
 'use client'
 
-import Image from 'next/image'
 import Slider from 'react-infinite-logo-slider'
+
+import { CldImage } from './CldImage'
 
 export const LogoSlider = ({ data }: { data: { url: string }[] }) => {
   return (
@@ -16,7 +17,7 @@ export const LogoSlider = ({ data }: { data: { url: string }[] }) => {
         {data.map((item: { url: string }, idx) => (
           <Slider.Slide key={item.url}>
             <div className={'relative mx-auto w-[165px] h-[60px]'}>
-              <Image
+              <CldImage
                 src={item.url}
                 alt={'Logo partners'}
                 fill

@@ -1,7 +1,6 @@
 'use client'
-import Image from 'next/image'
-
 import { Button } from './Button'
+import { CldImage } from './CldImage'
 import { Label } from './Label'
 import { LexicalRenderer } from './LexicalRenderer'
 
@@ -28,7 +27,7 @@ export const ArticleShort = ({
     <div className={'grid grid-cols-1 md:grid-cols-2 gap-7.5 md:gap-12.5 mb-[70px]'}>
       <div className={reverse ? 'md:order-last' : ''}>
         <div className={'pt-[100%] relative overflow-hidden rounded-lg bg-lightAccent'}>
-          <Image src={image} className={'object-cover object-center'} fill alt={data.title} />
+          <CldImage src={image} className={'object-cover object-center'} fill alt={data.title} />
         </div>
       </div>
       <div className={'flex items-center'}>

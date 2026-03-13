@@ -1,7 +1,7 @@
 import { Button } from 'components/Button'
+import { CldImage } from 'components/CldImage'
 import { Container } from 'components/Container'
 import parse from 'html-react-parser'
-import Image from 'next/image'
 
 export const ImageTextCta = ({
   data,
@@ -18,7 +18,7 @@ export const ImageTextCta = ({
       <Container size={'lg'}>
         <div className={'grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center'}>
           <div className={'relative w-full aspect-[4/3] overflow-hidden rounded-lg'}>
-            <Image
+            <CldImage
               src={data.image.url}
               alt={data.image.alternativeText || data.title}
               fill

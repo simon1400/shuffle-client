@@ -1,7 +1,7 @@
 'use client'
-import Image from 'next/image'
 import Link from 'next/link'
 
+import { CldImage } from './CldImage'
 import { Label } from './Label'
 
 export const SmallCard = ({ data }: { data: IShortProduct }) => {
@@ -12,7 +12,7 @@ export const SmallCard = ({ data }: { data: IShortProduct }) => {
         'max-w-[128px] md:max-w-none block relative rounded-big hover:bg-lightDark duration-200 text-center md:px-8 p-3.5 md:pb-8 md:pt-10'
       }
     >
-      <Image
+      <CldImage
         className={'ml-auto mr-auto mb-2.5'}
         src={data.shortIcon.url}
         width={160}

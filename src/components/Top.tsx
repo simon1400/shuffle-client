@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useMediaQuery } from 'react-responsive'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -34,7 +33,11 @@ export const Top = ({
   return (
     <div>
       <div className={'absolute w-full top-0 left-0 right-0 -z-10'}>
-        <Image src={'/assets/top-background.svg'} fill alt={'Top background squares'} priority />
+        <img
+          src={'/assets/top-background.svg'}
+          alt={'Top background squares'}
+          className={'absolute inset-0 w-full h-full'}
+        />
         <video
           className={'w-full'}
           autoPlay
@@ -46,7 +49,11 @@ export const Top = ({
         >
           <source src={'/assets/animation.mp4'} type={'video/mp4'} />
         </video>
-        <Image src={'/assets/shadow-gradient.svg'} fill alt={'Top background shadow'} />
+        <img
+          src={'/assets/shadow-gradient.svg'}
+          alt={'Top background shadow'}
+          className={'absolute inset-0 w-full h-full'}
+        />
       </div>
       <Container size={'lg'}>
         <div className={'pt-[220px] md:pt-[341px] pb-8.5 relative z-20'}>
