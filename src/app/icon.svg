@@ -28,8 +28,8 @@
       <stop offset="1" stop-color="#000" stop-opacity="0"></stop>
     </linearGradient>
     <linearGradient id="Nepojmenovaný_přechod_33" data-name="Nepojmenovaný přechod 33" x1="16" y1="-3.81" x2="16" y2="21.16" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="gold"></stop>
-      <stop offset="1" stop-color="gold"></stop>
+      <stop offset="0" stop-color="#af46f0"></stop>
+      <stop offset="1" stop-color="#af46f0"></stop>
     </linearGradient>
   </defs>
   <rect class="cls-3" x=".8" y=".8" width="30.41" height="30.41" rx="6.51" ry="6.51"></rect>
