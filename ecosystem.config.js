@@ -33,6 +33,7 @@ module.exports = {
       cwd: '/opt/shuffle-client',
       instances: 1,
       exec_mode: 'fork',
+      node_args: '--max-old-space-size=384',
       env: {
         NODE_ENV: 'production',
         PORT: 3002,
