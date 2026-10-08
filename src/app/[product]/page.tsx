@@ -8,14 +8,18 @@ import { DynamicContent } from 'components/DynamicContent'
 import { Products } from 'components/products/Products'
 import { Slider } from 'components/Slider'
 import { Top } from 'components/Top'
-import { getProduct, getProductMeta } from 'fetch/product'
+import { getProduct, getProductMeta, getProductSlugs } from 'fetch/product'
 import { notFound } from 'next/navigation'
 
 interface ProductParams {
   product: string
 }
 
-export const revalidate = 3600 // Revalidate every hour
+// Prerender all products at build; new ones are rendered on first request
+export async function generateStaticParams(): Promise<ProductParams[]> {
+  const slugs = await getProductSlugs()
+  return slugs.map((product) => ({ product }))
+}
 
 export async function generateMetadata({
   params,

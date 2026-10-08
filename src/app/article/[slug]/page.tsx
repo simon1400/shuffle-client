@@ -5,8 +5,14 @@ import { CldImage } from 'components/CldImage'
 import { Container } from 'components/Container'
 import { DynamicContent } from 'components/DynamicContent'
 import { Top } from 'components/Top'
-import { getArticle, getArticleMeta } from 'fetch/article'
+import { getArticle, getArticleMeta, getArticleSlugs } from 'fetch/article'
 import { notFound } from 'next/navigation'
+
+// Prerender all articles at build; new ones are rendered on first request
+export async function generateStaticParams() {
+  const slugs = await getArticleSlugs()
+  return slugs.map((slug) => ({ slug }))
+}
 
 export async function generateMetadata({
   params,

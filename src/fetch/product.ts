@@ -242,3 +242,10 @@ export const getProductMeta = async (slug: string) => {
   const data: IMetaDataProduct[] = await Axios.get(`/api/products?${query}`)
   return data[0]
 }
+
+export const getProductSlugs = async () => {
+  const data: { slug: string }[] = await Axios.get(
+    '/api/products?fields[0]=slug&pagination[pageSize]=100',
+  )
+  return data.map((p) => p.slug)
+}

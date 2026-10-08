@@ -138,3 +138,10 @@ export const getArticleMeta = async (slug: string) => {
   const data: IMetaDataArticle[] = await Axios.get(`/api/articles?${query}`)
   return data[0]
 }
+
+export const getArticleSlugs = async () => {
+  const data: { slug: string }[] = await Axios.get(
+    '/api/articles?fields[0]=slug&pagination[pageSize]=100',
+  )
+  return data.map((a) => a.slug)
+}

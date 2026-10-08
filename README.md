@@ -26,6 +26,15 @@ Production runs `.next/standalone/server.js` under PM2 (`ecosystem.config.js`, p
 
 `npm start` runs the same standalone build for a local check, on port 3000 by default (`PORT=...` to change it). Do not run it on the server with `PORT=3002` next to the PM2 process: it fails with `EADDRINUSE` in a restart loop and floods the logs. Use `pm2 restart shuffle-client` instead.
 
+### Caching
+
+Content changes rarely, so every page is prerendered at build and served from cache:
+
+- `npm run build` fetches all data from Strapi (`APP_API`), so Strapi must be running during the build.
+- Strapi webhook `POST http://localhost:3002/api/revalidate` (`Authorization: Bearer <REVALIDATION_SECRET>`, entry and media events) refreshes the whole site and re-renders every page right away. If Strapi is unreachable at that moment, it answers 503 and keeps the cache.
+- Pages are also revalidated once a day as a fallback. If Strapi is down, the last good version keeps being served.
+- `src/instrumentation.ts` removes cached 404 pages (junk URLs from scanners) on start and once a day.
+
 `src/middleware.ts` returns 404 for every request with the `Next-Action` header, because the project has no Server Actions and such requests come from vulnerability scanners. If Server Actions are ever added, remove this check.
 
 ## Learn More

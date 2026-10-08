@@ -23,21 +23,19 @@ export const metadata: Metadata = {
   description: 'Shuffle king',
 }
 
-// Force all pages to be dynamic - skip static generation at build time
-export const dynamic = 'force-dynamic'
+// Content changes rarely: pages are prerendered at build (needs Strapi at APP_API)
+// and served from cache. Strapi webhook -> /api/revalidate refreshes them right after
+// an edit; this daily revalidation is only a fallback if the webhook was missed.
+// Fetch errors must not be swallowed here: a thrown error keeps the previous cached page,
+// a fallback would be cached instead.
+export const revalidate = 86400
 
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  let navigation
-  try {
-    navigation = await getTopNav()
-  } catch (error) {
-    console.error('Failed to fetch navigation:', error)
-    navigation = { topNav: { items: [] } } // Fallback to empty navigation
-  }
+  const navigation = await getTopNav()
 
   return (
     <html lang={'en'} className={`overflow-x-hidden max-w-screen ${baiJamjuree.variable}`}>

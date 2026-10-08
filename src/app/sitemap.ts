@@ -1,32 +1,16 @@
 import type { MetadataRoute } from 'next'
 
-import { Axios } from '../lib/api'
+import { getArticleSlugs } from '../fetch/article'
+import { getProductSlugs } from '../fetch/product'
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://shuffleking.com'
 
-async function getAllProductSlugs(): Promise<string[]> {
-  try {
-    const data: { slug: string }[] = await Axios.get('/api/products?fields[0]=slug')
-    return data.map((p) => p.slug)
-  } catch {
-    return []
-  }
-}
-
-async function getAllArticleSlugs(): Promise<string[]> {
-  try {
-    const data: { slug: string }[] = await Axios.get('/api/articles?fields[0]=slug')
-    return data.map((a) => a.slug)
-  } catch {
-    return []
-  }
-}
+// Same caching as pages (see layout.tsx); errors are thrown so a failed refresh
+// keeps the previous sitemap instead of caching one without products
+export const revalidate = 86400
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [productSlugs, articleSlugs] = await Promise.all([
-    getAllProductSlugs(),
-    getAllArticleSlugs(),
-  ])
+  const [productSlugs, articleSlugs] = await Promise.all([getProductSlugs(), getArticleSlugs()])
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
