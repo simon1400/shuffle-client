@@ -20,6 +20,14 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Production
+
+Production runs `.next/standalone/server.js` under PM2 (`ecosystem.config.js`, port 3002). Secrets (`REVALIDATION_SECRET`) are read from `.env` next to `ecosystem.config.js`, see `.env.example`.
+
+`npm start` runs the same standalone build for a local check, on port 3000 by default (`PORT=...` to change it). Do not run it on the server with `PORT=3002` next to the PM2 process: it fails with `EADDRINUSE` in a restart loop and floods the logs. Use `pm2 restart shuffle-client` instead.
+
+`src/middleware.ts` returns 404 for every request with the `Next-Action` header, because the project has no Server Actions and such requests come from vulnerability scanners. If Server Actions are ever added, remove this check.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

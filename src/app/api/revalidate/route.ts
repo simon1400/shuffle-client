@@ -4,7 +4,8 @@ import { revalidatePath } from 'next/cache'
 import { NextResponse } from 'next/server'
 
 // Security: Add secret token for webhook validation
-const REVALIDATION_SECRET = process.env.REVALIDATION_SECRET || 'shuffle-secret-key-2024'
+// No fallback: without REVALIDATION_SECRET every request is rejected
+const REVALIDATION_SECRET = process.env.REVALIDATION_SECRET
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,7 +13,7 @@ export async function POST(request: NextRequest) {
     const authHeader = request.headers.get('authorization')
     const token = authHeader?.replace('Bearer ', '')
 
-    if (token !== REVALIDATION_SECRET) {
+    if (!REVALIDATION_SECRET || token !== REVALIDATION_SECRET) {
       return NextResponse.json({ error: 'Invalid token' }, { status: 401 })
     }
 
