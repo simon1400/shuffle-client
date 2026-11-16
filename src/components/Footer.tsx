@@ -1,6 +1,6 @@
 import type { INavSocItems } from 'fetch/nav'
 
-import { getFooterNav, getSocNav } from 'fetch/nav'
+import { getFooterColumns, getFooterNav, getSocNav } from 'fetch/nav'
 
 import { FacebookIcon } from '../icons/Facebook'
 import { InstagramIcon } from '../icons/Instagram'
@@ -8,6 +8,7 @@ import { LinkedinIcon } from '../icons/Linkedin'
 import { TwitterIcon } from '../icons/Twitter'
 
 import { Container } from './Container'
+import { LexicalRenderer } from './LexicalRenderer'
 
 interface INavItems {
   link: string
@@ -71,16 +72,36 @@ const NavItem = ({
   )
 }
 
+const FooterColumn = ({ title, content }: { title?: string | null; content?: string | null }) => {
+  return (
+    <div className={'mb-10 md:mb-0'}>
+      {!!title && (
+        <h5 className={'text-accent text-sm font-bold md:text-xxl mb-5 md:mb-8.5'}>{title}</h5>
+      )}
+      {!!content && (
+        <div className={'footer-content text-sm md:text-3xl text-white/70'}>
+          <LexicalRenderer content={content} />
+        </div>
+      )}
+    </div>
+  )
+}
+
 export const Footer = async () => {
-  const nav = await getFooterNav()
+  const columns = await getFooterColumns()
+  const nav = columns.length ? null : await getFooterNav()
   const { socNav } = await getSocNav()
   return (
     <footer className={'py-11 md:py-[160px]'}>
       <Container size={'lg'}>
-        <div className={'md:flex justify-around text-center md:text-left'}>
-          {nav.footer.map((item) => (
-            <NavItem key={item.title} title={item.title} items={item.items} />
-          ))}
+        <div className={'md:flex justify-around gap-10 text-center md:text-left'}>
+          {columns.length
+            ? columns.map((col) => (
+                <FooterColumn key={col.id} title={col.title} content={col.content} />
+              ))
+            : nav?.footer?.map((item) => (
+                <NavItem key={item.title} title={item.title} items={item.items} />
+              ))}
           <NavItem title={'Follow us'} socIcons={socNav} />
         </div>
       </Container>
